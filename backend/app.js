@@ -8,6 +8,7 @@ require('dotenv').config();
 const {sequelize} = require('./models');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const session = require('express-session');
 
 const app = express();
 
@@ -25,7 +26,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  HttpOnly: true,
+  secure: true,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
+app.use(passport.session());
 passportConfig();
 
 app.use('/', indexRouter);
