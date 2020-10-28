@@ -9,6 +9,7 @@ const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const issuesRouter = require('./routes/issues');
+const issueRouter = require('./routes/issue');
 const session = require('express-session');
 const cors = require('cors');
 
@@ -58,6 +59,7 @@ passportConfig();
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/issue', issueRouter);
 app.use('/issues', issuesRouter);
 
 app.listen(process.env.PORT);
