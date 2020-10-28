@@ -8,7 +8,7 @@ const IssueItem = styled.li`
 const Issue = ({issue}) => {
     return (
         <IssueItem>
-            {issue.title}{issue.content}
+            {issue.title}{issue.description}
         </IssueItem>
     );
 };
