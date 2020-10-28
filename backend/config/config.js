@@ -6,14 +6,14 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB,
     host: process.env.DB_HOST,
-    dialect: 'mysql'
+    dialect: 'mysql',
   },
   production: {
     username: process.env.SERVER_USERNAME,
     password: process.env.SERVER_PASSWORD,
     database: process.env.SERVER_DB,
     host: process.env.SERVER_HOST,
-    dialect: 'mysql'
+    dialect: 'mysql',
   },
   common: {
     timezone: '+09:00',
@@ -22,5 +22,5 @@ module.exports = {
       dateStrings: true, // ! 데이터 로드시 문자열로 가저옴
       typeCast: true, // ! 타임존을 역으로 계산하지 않음
     },
-  }
+  },
 };
