@@ -8,6 +8,7 @@ require('dotenv').config();
 const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const issuesRouter = require('./routes/issues');
 const session = require('express-session');
 const cors = require('cors');
 
@@ -20,7 +21,7 @@ app.use(
 );
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log('DB 연결 성공');
   })
@@ -57,5 +58,6 @@ passportConfig();
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/issues', issuesRouter);
 
 app.listen(process.env.PORT);
