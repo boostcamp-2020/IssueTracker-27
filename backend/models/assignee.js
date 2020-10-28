@@ -18,11 +18,11 @@ module.exports = class Assignee extends Sequelize.Model {
 
   static associate(db) {
     this.belongsTo(db.joinUser, {
-      foreignKey: { field: 'joinUserId', allowNull: false },
+      foreignKey: { name: 'joinUserId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.issue, {
-      foreignKey: { field: 'issueId', allowNull: false },
+      foreignKey: { name: 'issueId', allowNull: false },
       targetKey: 'id',
     });
   }

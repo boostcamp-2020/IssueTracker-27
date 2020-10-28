@@ -40,7 +40,7 @@ module.exports = class Milestone extends Sequelize.Model {
       sourceKey: 'id',
     });
     this.belongsTo(db.issueTracker, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       targetKey: 'id',
     });
   }

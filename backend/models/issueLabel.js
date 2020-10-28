@@ -18,11 +18,11 @@ module.exports = class IssueLabel extends Sequelize.Model {
 
   static associate(db) {
     this.belongsTo(db.label, {
-      foreignKey: { field: 'labelId', allowNull: false },
+      foreignKey: { name: 'labelId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.issue, {
-      foreignKey: { field: 'issueId', allowNull: false },
+      foreignKey: { name: 'issueId', allowNull: false },
       targetKey: 'id',
     });
   }

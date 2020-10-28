@@ -20,6 +20,7 @@ module.exports = class Issue extends Sequelize.Model {
         openAt: {
           type: Sequelize.DATEONLY,
           allowNull: false,
+          defaultValue: Sequelize.NOW,
         },
       },
       {
@@ -36,23 +37,23 @@ module.exports = class Issue extends Sequelize.Model {
 
   static associate(db) {
     this.hasMany(db.comment, {
-      foreignKey: { field: 'issueId', allowNull: false },
+      foreignKey: { name: 'issueId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.issueLabel, {
-      foreignKey: { field: 'issueId', allowNull: false },
+      foreignKey: { name: 'issueId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.assignee, {
-      foreignKey: { field: 'issueId', allowNull: false },
+      foreignKey: { name: 'issueId', allowNull: false },
       sourceKey: 'id',
     });
     this.belongsTo(db.joinUser, {
-      foreignKey: { field: 'joinUserId', allowNull: false },
+      foreignKey: { name: 'joinUserId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.issueTracker, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.milestone, {
