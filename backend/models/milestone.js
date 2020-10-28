@@ -15,6 +15,7 @@ module.exports = class Milestone extends Sequelize.Model {
         status: {
           type: Sequelize.BOOLEAN,
           allowNull: false,
+          defaultValue: true,
         },
         dueDate: {
           type: Sequelize.DATEONLY,

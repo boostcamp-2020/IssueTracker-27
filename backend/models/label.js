@@ -30,10 +30,6 @@ module.exports = class Label extends Sequelize.Model {
   }
 
   static associate(db) {
-    this.hasMany(db.issue, {
-      foreignKey: 'labelId',
-      sourceKey: 'id',
-    });
     this.hasMany(db.issueLabel, {
       foreignKey: { field: 'labelId', allowNull: false },
       sourceKey: 'id',
