@@ -22,7 +22,7 @@ module.exports = class JoinUser extends Sequelize.Model {
       sourceKey: 'id',
     });
     this.hasMany(db.issue, {
-      foreignKey: 'joinUserId',
+      foreignKey: { field: 'joinUserId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.assignee, {
