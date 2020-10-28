@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import useInputChange from '../hooks/useInputChange';
 import LoginForm from '../components/LoginForm';
 
 const LoginSection = styled.section`
@@ -34,8 +33,6 @@ const LoginSection = styled.section`
 `;
 
 const Login = () => {
-  const [id, changeId] = useInputChange('');
-  const [password, changePassword] = useInputChange('');
 
   return (
     <LoginSection>
