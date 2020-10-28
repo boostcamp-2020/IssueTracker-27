@@ -43,11 +43,11 @@ router.patch('/:issueId', async (req, res) => {
   const {
     title,
     description,
-    deleteIssueLabelIds,
-    addLabelIds,
+    deleteIssueLabelIds = [],
+    addLabelIds = [],
     milestoneId,
-    deleteAssigneeIds,
-    addJoinUserIds,
+    deleteAssigneeIds = [],
+    addJoinUserIds = [],
   } = req.body;
   try {
     await Promise.all([
