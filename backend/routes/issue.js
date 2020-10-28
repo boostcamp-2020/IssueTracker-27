@@ -64,7 +64,8 @@ router.patch('/:issueId', async (req, res) => {
       ),
       db.issueLabel.destroy({
         where: {
-          id: deleteIssueLabelIds,
+          labelId: deleteIssueLabelIds,
+          issueId,
         },
       }),
       db.issueLabel.bulkCreate(
