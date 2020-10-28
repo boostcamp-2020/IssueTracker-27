@@ -22,6 +22,18 @@ router.get('/', async (req, res) => {
           model: db.milestone,
           attributes: ['id', 'title', 'description', 'status', 'dueDate'],
         },
+        {
+          model: db.assignee,
+          attributes: ['id'],
+          include: {
+            model: db.joinUser,
+            attributes: ['id'],
+            include: {
+              model: db.user,
+              attributes: ['id', 'username', 'profileImage'],
+            },
+          },
+        },
       ],
     });
 
