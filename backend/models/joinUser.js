@@ -25,8 +25,8 @@ module.exports = class JoinUser extends Sequelize.Model {
       foreignKey: 'joinUserId',
       sourceKey: 'id',
     });
-    this.hasMany(db.issue, {
-      foreignKey: 'joinUserAssigneeId',
+    this.hasMany(db.assignee, {
+      foreignKey: { field: 'joinUserId', allowNull: false },
       sourceKey: 'id',
     });
     this.belongsTo(db.user, {

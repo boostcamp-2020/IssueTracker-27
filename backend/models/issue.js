@@ -15,6 +15,7 @@ module.exports = class Issue extends Sequelize.Model {
         status: {
           type: Sequelize.BOOLEAN,
           allowNull: false,
+          defaultValue: true,
         },
         openAt: {
           type: Sequelize.DATEONLY,
@@ -42,9 +43,9 @@ module.exports = class Issue extends Sequelize.Model {
       foreignKey: { field: 'issueId', allowNull: false },
       sourceKey: 'id',
     });
-    this.belongsTo(db.joinUser, {
-      foreignKey: 'joinUserAssigneeId',
-      targetKey: 'id',
+    this.hasMany(db.assignee, {
+      foreignKey: { field: 'issueId', allowNull: false },
+      sourceKey: 'id',
     });
     this.belongsTo(db.joinUser, {
       foreignKey: { field: 'joinUserId', allowNull: false },
