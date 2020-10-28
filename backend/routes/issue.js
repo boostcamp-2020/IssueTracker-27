@@ -4,17 +4,20 @@ const { db } = require('../models/index');
 
 router.post('/', async (req, res) => {
   const {
+    joinUserId,
     title,
-    content,
+    description,
     milestoneId,
     issueTrackerId,
     labelIds = [],
     joinUserIds = [],
   } = req.body;
+
   try {
     const newIssue = await db.issue.create({
+      joinUserId,
       title,
-      content,
+      description,
       milestoneId,
       issueTrackerId,
     });
@@ -39,7 +42,7 @@ router.patch('/:issueId', async (req, res) => {
   const { issueId } = req.params;
   const {
     title,
-    content,
+    description,
     deleteIssueLabelIds,
     addLabelIds,
     milestoneId,
@@ -70,7 +73,7 @@ router.patch('/:issueId', async (req, res) => {
       db.issue.update(
         {
           title,
-          content,
+          description,
           milestoneId,
         },
         {
