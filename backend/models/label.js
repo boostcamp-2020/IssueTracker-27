@@ -34,6 +34,10 @@ module.exports = class Label extends Sequelize.Model {
       foreignKey: 'labelId',
       sourceKey: 'id',
     });
+    this.hasMany(db.issueLabel, {
+      foreignKey: { field: 'labelId', allowNull: false },
+      sourceKey: 'id',
+    });
     this.belongsTo(db.issueTracker, {
       foreignKey: { field: 'issueTrackerId', allowNull: false },
       targetKey: 'id',

@@ -38,6 +38,10 @@ module.exports = class Issue extends Sequelize.Model {
       foreignKey: { field: 'issueId', allowNull: false },
       sourceKey: 'id',
     });
+    this.hasMany(db.issueLabel, {
+      foreignKey: { field: 'issueId', allowNull: false },
+      sourceKey: 'id',
+    });
     this.belongsTo(db.joinUser, {
       foreignKey: 'joinUserAssigneeId',
       targetKey: 'id',
@@ -48,10 +52,6 @@ module.exports = class Issue extends Sequelize.Model {
     });
     this.belongsTo(db.issueTracker, {
       foreignKey: { field: 'issueTrackerId', allowNull: false },
-      targetKey: 'id',
-    });
-    this.belongsTo(db.label, {
-      foreignKey: 'labelId',
       targetKey: 'id',
     });
     this.belongsTo(db.milestone, {
