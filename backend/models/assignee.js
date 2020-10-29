@@ -1,18 +1,13 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Comment extends Sequelize.Model {
+module.exports = class Assignee extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {
-        content: {
-          type: Sequelize.TEXT,
-          allowNull: false,
-        },
-      },
+      {},
       {
         sequelize,
-        modelName: 'Comment',
-        tableName: 'comment',
+        modelName: 'Assignee',
+        tableName: 'assignee',
         charset: 'utf8',
         collate: 'utf8_general_ci',
         timestamps: true,

@@ -34,11 +34,11 @@ module.exports = class User extends Sequelize.Model {
 
   static associate(db) {
     this.hasMany(db.joinUser, {
-      foreignKey: { field: 'userId', allowNull: false },
+      foreignKey: { name: 'userId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.issueTracker, {
-      foreignKey: { field: 'userId', allowNull: false },
+      foreignKey: { name: 'userId', allowNull: false },
       sourceKey: 'id',
     });
   }
