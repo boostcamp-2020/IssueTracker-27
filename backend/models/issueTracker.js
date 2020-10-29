@@ -24,23 +24,23 @@ module.exports = class IssueTracker extends Sequelize.Model {
 
   static associate(db) {
     this.hasMany(db.joinUser, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.label, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.issue, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.milestone, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       sourceKey: 'id',
     });
     this.belongsTo(db.user, {
-      foreignKey: { field: 'userId', allowNull: false },
+      foreignKey: { name: 'userId', allowNull: false },
       targetKey: 'id',
     });
   }

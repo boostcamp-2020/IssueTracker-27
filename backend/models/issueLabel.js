@@ -1,18 +1,13 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Comment extends Sequelize.Model {
+module.exports = class IssueLabel extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
-      {
-        content: {
-          type: Sequelize.TEXT,
-          allowNull: false,
-        },
-      },
+      {},
       {
         sequelize,
-        modelName: 'Comment',
-        tableName: 'comment',
+        modelName: 'IssueLabel',
+        tableName: 'issueLabel',
         charset: 'utf8',
         collate: 'utf8_general_ci',
         timestamps: true,
@@ -22,8 +17,8 @@ module.exports = class Comment extends Sequelize.Model {
   }
 
   static associate(db) {
-    this.belongsTo(db.joinUser, {
-      foreignKey: { name: 'joinUserId', allowNull: false },
+    this.belongsTo(db.label, {
+      foreignKey: { name: 'labelId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.issue, {

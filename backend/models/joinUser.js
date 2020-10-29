@@ -18,23 +18,23 @@ module.exports = class JoinUser extends Sequelize.Model {
 
   static associate(db) {
     this.hasMany(db.comment, {
-      foreignKey: { field: 'joinUserId', allowNull: false },
+      foreignKey: { name: 'joinUserId', allowNull: false },
       sourceKey: 'id',
     });
     this.hasMany(db.issue, {
-      foreignKey: 'joinUserId',
+      foreignKey: { name: 'joinUserId', allowNull: false },
       sourceKey: 'id',
     });
-    this.hasMany(db.issue, {
-      foreignKey: 'joinUserAssigneeId',
+    this.hasMany(db.assignee, {
+      foreignKey: { name: 'joinUserId', allowNull: false },
       sourceKey: 'id',
     });
     this.belongsTo(db.user, {
-      foreignKey: { field: 'userId', allowNull: false },
+      foreignKey: { name: 'userId', allowNull: false },
       targetKey: 'id',
     });
     this.belongsTo(db.issueTracker, {
-      foreignKey: { field: 'issueTrackerId', allowNull: false },
+      foreignKey: { name: 'issueTrackerId', allowNull: false },
       targetKey: 'id',
     });
   }
