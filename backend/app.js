@@ -37,20 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
-    HttpOnly: true,
-    secure: true,
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-  })
-);
-app.use(
-  session({
-    HttpOnly: true,
-    secure: true,
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    cookie: { secure: process.env.ENV === 'development' ? false : true },
   })
 );
 app.use(passport.initialize());
