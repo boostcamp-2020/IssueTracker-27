@@ -32,7 +32,7 @@ const FilterContainer = styled.div`
           background-color: gray;
           cursor: pointer;
         }
-        &:first-child:hover {
+        &:first-of-type:hover {
           background-color: white;
           cursor: default;
         }
