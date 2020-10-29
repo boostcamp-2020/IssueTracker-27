@@ -6,11 +6,13 @@ import Login from './pages/Login';
 import Milestone from './pages/Milestone';
 import Label from './pages/Label';
 import NewIssue from './pages/NewIssue';
+import Header from './components/common/Header';
 import '../public/reset.css';
 
 const App = () => {
   return (
     <Router>
+      <Header/>
       <Switch>
         <Route path='/new-issue' component={NewIssue}/>
         <Route path='/milestone' component={Milestone} />
