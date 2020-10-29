@@ -1,9 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
-
-const IssueItem = styled.li`
-    border: 1px solid black;
-`;
+import {IssueItem} from './style';
 
 const Issue = ({issue}) => {
     return (

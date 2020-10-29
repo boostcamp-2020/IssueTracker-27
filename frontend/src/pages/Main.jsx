@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { axios } from '../api';
-import Issues from '../components/issues/Issues';
+import IssueTable from '../components/IssueTable';
 import Menu from '../components/Menu';
 
 const Main = () => {
@@ -34,9 +34,10 @@ const Main = () => {
   return (
     <div>
       <Menu />
-      {myInfo && `안녕하세요. ${myInfo.username}님`}
+      <IssueTable issues={issues}/>
+      {/* {myInfo && `안녕하세요. ${myInfo.username}님`}
       {issues.length ? <Issues issues={issues}/> : <div>이슈가 없습니다.</div>
-      }
+      } */}
     </div>
 
   );

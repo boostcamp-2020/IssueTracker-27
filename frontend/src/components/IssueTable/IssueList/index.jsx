@@ -1,12 +1,8 @@
 import React from 'react';
 import Issue from './Issue';
-import styled from '@emotion/styled';
+import {IssueItems} from './style';
 
-const IssueItems = styled.ul`
-    border: 4px solid black;
-`;
-
-const Issues = ({issues}) => {
+const IssueList = ({issues}) => {
     return (
         <IssueItems>
            {issues.map((issue) => <Issue key={issue.id} issue={issue}/> )} 
@@ -14,4 +10,4 @@ const Issues = ({issues}) => {
     );
 };
 
-export default Issues;
+export default IssueList;
