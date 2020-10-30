@@ -52,8 +52,9 @@ app.use('/auth', authRouter);
 app.use('/issue', issueRouter);
 app.use('/issues', issuesRouter);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+process.env.ENV === 'production' &&
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
 
 app.listen(process.env.PORT);
