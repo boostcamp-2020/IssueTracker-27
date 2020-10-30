@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { axios } from '../api';
-import Issues from '../components/issues/Issues';
+import IssueTable from '../components/IssueTable';
+import Menu from '../components/Menu';
 
 const Main = () => {
   const [myInfo, setMyInfo] = useState(null);
@@ -19,8 +20,7 @@ const Main = () => {
     try {
       const response = await axios.get('/issues?issueTrackerId=1');
       setIssues(response.data.issues);
-    }
-    catch(error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -32,11 +32,9 @@ const Main = () => {
 
   return (
     <div>
-      {myInfo && `안녕하세요. ${myInfo.username}님`}
-      {issues.length ? <Issues issues={issues}/> : <div>이슈가 없습니다.</div>
-      }
+      <Menu />
+      <IssueTable issues={issues} />
     </div>
-
   );
 };
 

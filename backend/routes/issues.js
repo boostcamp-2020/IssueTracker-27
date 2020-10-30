@@ -11,6 +11,14 @@ router.get('/', async (req, res) => {
       attributes: ['id', 'title', 'description', 'status', 'openAt'],
       include: [
         {
+          model: db.joinUser,
+          attributes: ['id'],
+          include: {
+            model: db.user,
+            attributes: ['id', 'username', 'profileImage'],
+          },
+        },
+        {
           model: db.issueLabel,
           attributes: ['id'],
           include: {

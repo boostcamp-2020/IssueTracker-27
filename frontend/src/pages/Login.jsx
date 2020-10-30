@@ -33,7 +33,6 @@ const LoginSection = styled.section`
 `;
 
 const Login = () => {
-
   return (
     <LoginSection>
       <h1>이슈 트래커</h1>
