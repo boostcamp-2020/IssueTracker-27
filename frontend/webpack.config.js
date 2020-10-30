@@ -7,17 +7,18 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, '../backend/public'),
+    filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
   devtool: 'eval-cheap-source-map',
   devServer: {
     port: 3000,
     overlay: true,
     hot: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -26,27 +27,27 @@ module.exports = {
         exclude: '/node_modules/',
         loader: 'babel-loader',
         options: {
-          configFile: './babel.config.js',
-        },
+          configFile: './babel.config.js'
+        }
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(jpeg|jpg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-        },
-      },
-    ],
+          name: '[name].[ext]'
+        }
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './public/index.html'
     }),
-    new MiniCssExtractPlugin({ filename: 'app.css' }),
-  ],
+    new MiniCssExtractPlugin({ filename: 'app.css' })
+  ]
 };

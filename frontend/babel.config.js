@@ -1,15 +1,15 @@
 module.exports = {
   presets: [
-    '@babel/preset-react',
     [
       '@babel/preset-env',
       {
         targets: '> 2%, not dead',
         corejs: 3,
-        useBuiltIns: 'usage',
+        useBuiltIns: 'entry',
         modules: false,
-        shippedProposals: true,
-      },
+        shippedProposals: true
+      }
     ],
-  ],
+    '@babel/preset-react'
+  ]
 };
