@@ -34,9 +34,6 @@ const Main = () => {
     <div>
       <Menu />
       <IssueTable issues={issues} />
-      {/* {myInfo && `안녕하세요. ${myInfo.username}님`}
-      {issues.length ? <Issues issues={issues}/> : <div>이슈가 없습니다.</div>
-      } */}
     </div>
   );
 };
