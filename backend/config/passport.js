@@ -2,6 +2,7 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 require('dotenv').config();
 const { db } = require('../models/index');
+const BASE_URL = require('../config/urlconfig')[process.env.ENV];
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -19,9 +20,15 @@ passport.deserializeUser(async (id, done) => {
 });
 
 const GithubConfig = {
-  clientID: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'http://localhost:5000/api/auth/login/github/callback',
+  clientID:
+    process.env.ENV === 'development'
+      ? process.env.DEV_CLIENT_ID
+      : process.env.PROD_CLIENT_ID,
+  clientSecret:
+    process.env.ENV === 'development'
+      ? process.env.DEV_CLIENT_SECRET
+      : process.env.PROD_CLIENT_SECRET,
+  callbackURL: `${BASE_URL.server}/api/auth/login/github/callback`,
 };
 
 const GithubVerify = async (accessToken, refreshToken, profile, done) => {
