@@ -9,7 +9,7 @@ const Main = () => {
 
   const checkAuthGithub = async () => {
     try {
-      const response = await axios.get('/auth/login/success');
+      const response = await axios.get('/api/auth/login/success');
       setMyInfo(response.data.user);
     } catch (error) {
       console.log(error);
@@ -18,7 +18,7 @@ const Main = () => {
 
   const getIssues = async () => {
     try {
-      const response = await axios.get('/issues?issueTrackerId=1');
+      const response = await axios.get('/api/issues?issueTrackerId=1');
       setIssues(response.data.issues);
     } catch (error) {
       console.log(error);

@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [password, changePassword] = useInputChange('');
 
   const clickGithubLogin = () => {
-    window.open(`${BASE_URL}/auth/login/github`, '_self');
+    window.open(`${BASE_URL}/api/auth/login/github`, '_self');
   };
 
   return (
