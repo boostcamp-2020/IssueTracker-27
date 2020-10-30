@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const HeaderContainer = styled.header`
@@ -19,12 +19,12 @@ const HeaderContainer = styled.header`
 
 const Header = () => {
   return (
-  <HeaderContainer>
-    <Link to="/main">
-      <i class="fas fa-book"></i>&nbsp;
-      ISSUES
-    </Link>
-  </HeaderContainer>);
-}
+    <HeaderContainer>
+      <Link to='/main'>
+        <i class='fas fa-book'></i>&nbsp; ISSUES
+      </Link>
+    </HeaderContainer>
+  );
+};
 
 export default Header;
