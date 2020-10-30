@@ -21,7 +21,7 @@ passport.deserializeUser(async (id, done) => {
 const GithubConfig = {
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'http://localhost:5000/auth/login/github/callback',
+  callbackURL: 'http://localhost:5000/api/auth/login/github/callback',
 };
 
 const GithubVerify = async (accessToken, refreshToken, profile, done) => {
