@@ -29,7 +29,7 @@ router.get('/login/github', passport.authenticate('github'));
 router.get(
   '/login/github/callback',
   passport.authenticate('github', {
-    successRedirect: `${BASE_URL.client}/main`,
+    successRedirect: '/main',
     failureRedirect: '/',
   })
 );
