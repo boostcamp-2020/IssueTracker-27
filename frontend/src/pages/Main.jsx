@@ -20,8 +20,7 @@ const Main = () => {
     try {
       const response = await axios.get('/issues?issueTrackerId=1');
       setIssues(response.data.issues);
-    }
-    catch(error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -34,12 +33,11 @@ const Main = () => {
   return (
     <div>
       <Menu />
-      <IssueTable issues={issues}/>
+      <IssueTable issues={issues} />
       {/* {myInfo && `안녕하세요. ${myInfo.username}님`}
       {issues.length ? <Issues issues={issues}/> : <div>이슈가 없습니다.</div>
       } */}
     </div>
-
   );
 };
 

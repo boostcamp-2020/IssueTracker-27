@@ -8,5 +8,17 @@
   "editor.codeActionsOnSave": {
       // For ESLint
       "source.fixAll.eslint": true
-  }
+  },
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "off",
+  "typescript.tsc.autoDetect": "off"
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "off",
+  "typescript.tsc.autoDetect": "off"
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "off",
+  "typescript.tsc.autoDetect": "off"
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "off",
+  "typescript.tsc.autoDetect": "off"
 }

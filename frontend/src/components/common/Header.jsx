@@ -10,10 +10,10 @@ const HeaderContainer = styled.header`
   font-weight: 700;
   text-align: center;
 
-  & a{
-      color: white;
-      text-decoration: none;
-      letter-spacing: 0.2rem
+  & a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
   }
 `;
 

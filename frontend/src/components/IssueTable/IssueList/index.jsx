@@ -4,9 +4,11 @@ import {IssueItems} from './style';
 
 const IssueList = ({issues}) => {
     return (
-        <IssueItems>
-           {issues.map((issue) => <Issue key={issue.id} issue={issue}/> )} 
-        </IssueItems>
+      <IssueItems>
+        {issues.map(issue => (
+          <Issue key={issue.id} issue={issue} />
+        ))}
+      </IssueItems>
     );
 };
 

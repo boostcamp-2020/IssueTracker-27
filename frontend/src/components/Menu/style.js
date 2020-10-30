@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const MenuContainer = styled.section`
-    display: flex;
+  display: flex;
 `;
 
 export default MenuContainer;
