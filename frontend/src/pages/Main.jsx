@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { axios } from '../api';
 import IssueTable from '../components/IssueTable';
 import Menu from '../components/Menu';
