@@ -14,12 +14,13 @@ const session = require('express-session');
 const cors = require('cors');
 
 const app = express();
-app.use(
-  cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  })
-);
+process.env.ENV === 'development' &&
+  app.use(
+    cors({
+      origin: 'http://localhost:3000',
+      credentials: true,
+    })
+  );
 
 sequelize
   .sync({ force: false })
@@ -47,9 +48,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 passportConfig();
 
-app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/issue', issueRouter);
-app.use('/issues', issuesRouter);
+app.use('/api', indexRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/issue', issueRouter);
+app.use('/api/issues', issuesRouter);
+
+process.env.ENV === 'production' &&
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
 
 app.listen(process.env.PORT);

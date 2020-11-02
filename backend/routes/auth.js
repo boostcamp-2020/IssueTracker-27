@@ -1,6 +1,8 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+require('dotenv').config();
+const BASE_URL = require('../config/urlconfig')[process.env.ENV];
 
 router.get('/login/success', (req, res) => {
   if (req.user) {
@@ -27,7 +29,7 @@ router.get('/login/github', passport.authenticate('github'));
 router.get(
   '/login/github/callback',
   passport.authenticate('github', {
-    successRedirect: 'http://localhost:3000/main',
+    successRedirect: `${BASE_URL.client}/main`,
     failureRedirect: '/',
   })
 );
