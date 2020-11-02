@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 require('dotenv').config();
-const BASE_URL = require('../config/config')[process.env.ENV];
+const BASE_URL = require('../config/urlconfig')[process.env.ENV];
 
 router.get('/login/success', (req, res) => {
   if (req.user) {

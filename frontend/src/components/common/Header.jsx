@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to='/main'>
-        <i class='fas fa-book'></i>&nbsp; ISSUES
+        <i className='fas fa-book'></i>&nbsp; ISSUES
       </Link>
     </HeaderContainer>
   );
