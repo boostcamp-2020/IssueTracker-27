@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { axios } from '../api';
 import IssueTable from '../components/IssueTable';
 import Menu from '../components/Menu';
+import {
+  useMainDispatch,
+  LOAD_MYINFO,
+  LOAD_ISSUE
+} from '../contexts/MainContext';
 
 const Main = () => {
-  const [myInfo, setMyInfo] = useState(null);
-  const [issues, setIssues] = useState([]);
+  const dispatch = useMainDispatch();
 
   const checkAuthGithub = async () => {
     try {
       const response = await axios.get('/api/auth/login/success');
-      setMyInfo(response.data.user);
+      dispatch({ type: LOAD_MYINFO, payload: response.data.user });
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +23,7 @@ const Main = () => {
   const getIssues = async () => {
     try {
       const response = await axios.get('/api/issues?issueTrackerId=1');
-      setIssues(response.data.issues);
+      dispatch({ type: LOAD_ISSUE, payload: response.data.issues });
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +37,7 @@ const Main = () => {
   return (
     <div>
       <Menu />
-      <IssueTable issues={issues} />
+      <IssueTable />
     </div>
   );
 };

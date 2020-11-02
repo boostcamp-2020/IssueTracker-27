@@ -8,20 +8,23 @@ import Label from './pages/Label';
 import NewIssue from './pages/NewIssue';
 import Header from './components/common/Header';
 import '../public/reset.css';
+import { ContextProvider } from './contexts/MainContext';
 
 const App = () => {
   return (
-    <Router>
-      <Header/>
-      <Switch>
-        <Route path='/new-issue' component={NewIssue}/>
-        <Route path='/milestone' component={Milestone} />
-        <Route path='/label' component={Label} />
-        <Route path='/main' component={Main} />
-        <Route exact path='/' component={Login} />
-        <Route component={NoMatch} />
-      </Switch>
-    </Router>
+    <ContextProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path='/new-issue' component={NewIssue} />
+          <Route path='/milestone' component={Milestone} />
+          <Route path='/label' component={Label} />
+          <Route path='/main' component={Main} />
+          <Route exact path='/' component={Login} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+    </ContextProvider>
   );
 };
 
