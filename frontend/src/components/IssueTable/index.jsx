@@ -4,13 +4,13 @@ import Toolbar from './Toolbar';
 import IssueList from './IssueList';
 import IssueTableContainer from './style';
 
-const IssueTable = ({issues}) => {
-    return (
-      <IssueTableContainer>
-        <Toolbar/>
-        <IssueList issues={issues}/>
-      </IssueTableContainer>
-    );
+const IssueTable = () => {
+  return (
+    <IssueTableContainer>
+      <Toolbar />
+      <IssueList />
+    </IssueTableContainer>
+  );
 };
 
 export default IssueTable;

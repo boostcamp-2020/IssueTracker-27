@@ -1,8 +1,11 @@
 import React from 'react';
 import Issue from './Issue';
 import { IssueItems } from './style';
+import { useMainState } from '../../../contexts/MainContext';
 
-const IssueList = ({ issues }) => {
+const IssueList = () => {
+  const { issues } = useMainState();
+
   return (
     <IssueItems>
       {issues.map(issue => (
