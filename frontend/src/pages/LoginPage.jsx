@@ -32,7 +32,7 @@ const LoginSection = styled.section`
   }
 `;
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <LoginSection>
       <h1>이슈 트래커</h1>
@@ -41,4 +41,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

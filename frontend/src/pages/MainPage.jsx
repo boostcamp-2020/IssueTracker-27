@@ -8,7 +8,7 @@ import {
   LOAD_ISSUE
 } from '../contexts/MainContext';
 
-const Main = () => {
+const MainPage = () => {
   const dispatch = useMainDispatch();
 
   const checkAuthGithub = async () => {
@@ -42,4 +42,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;
