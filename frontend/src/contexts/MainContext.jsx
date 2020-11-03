@@ -4,21 +4,26 @@ const StateContext = createContext(null);
 const DispatchContext = createContext(null);
 
 export const LOAD_MYINFO = 'LOAD_MYINFO';
-export const LOAD_ISSUE = 'LOAD_ISSUE';
+export const LOAD_ALL_DATA = 'LOAD_ALL_DATA';
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case LOAD_ALL_DATA:
+      return { ...state, ...action.payload };
     case LOAD_MYINFO:
       return { ...state, myInfo: action.payload };
-    case LOAD_ISSUE:
-      return { ...state, issues: action.payload };
     default:
       throw new Error('Unhandled action');
   }
 };
 
 export const ContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { myInfo: {}, issues: [] });
+  const [state, dispatch] = useReducer(reducer, {
+    myInfo: {},
+    issues: [],
+    labels: [],
+    milestones: []
+  });
 
   return (
     <DispatchContext.Provider value={dispatch}>
