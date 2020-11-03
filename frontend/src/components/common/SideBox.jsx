@@ -3,10 +3,11 @@ import styled from '@emotion/styled';
 
 const SideBoxWrapper = styled.div`
   position: relative;
-  background-color: lightblue;
-  border: 1px solid lightgrey;
-  height: 8vh;
-  width: 10%;
+  left: 10rem;
+  height: 6rem;
+  width: 20rem;
+  border-bottom: 1px solid lightgrey;
+  padding: 1rem 0rem;
 `;
 
 const SideBox = ({ children }) => {
@@ -15,8 +16,8 @@ const SideBox = ({ children }) => {
 
 const DropDownWrapper = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 3rem;
+  left: 0;
   border: 1px solid lightgrey;
 `;
 
@@ -31,12 +32,8 @@ const SideBoxContainer = ({ FirstChild, SecondChild }) => {
 
   return (
     <SideBox>
-      <FirstChild onClick={toggleIsShow}></FirstChild>
-      {isShow && (
-        <DropDownBox>
-          <SecondChild></SecondChild>
-        </DropDownBox>
-      )}
+      {FirstChild(toggleIsShow)}
+      {isShow && <DropDownBox>{SecondChild}</DropDownBox>}
     </SideBox>
   );
 };

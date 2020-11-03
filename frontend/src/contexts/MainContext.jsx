@@ -75,6 +75,7 @@ export const ContextProvider = ({ children }) => {
     issues: [],
     labels: [],
     milestones: [],
+    joinUsers: [],
     filterBase: {
       isOpen: true,
       labels: [],

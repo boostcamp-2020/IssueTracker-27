@@ -1,28 +1,64 @@
 import React from 'react';
 import SideBoxContainer from '../../common/SideBox';
+import { LabelMenu, LabelMenuDropDown } from '../../AsideMenu/LabelMenu.jsx';
+import {
+  AssigneeMenu,
+  AssigneeMenuDropDown
+} from '../../AsideMenu/AssigneeMenu.jsx';
+import {
+  MilestoneMenu,
+  MilestoneDropDown
+} from '../../AsideMenu/MilestoneMenu';
 
-const FirstChild = ({ onClick }) => {
+const IssueAside = ({ additionalInfo, setAdditionalInfo }) => {
   return (
     <>
-      <div className='title'>Assignees</div>
-      <div className='setting_btn' onClick={onClick}>
-        <i className='fas fa-cog'></i>
-      </div>
-      <div>Selected</div>
+      <SideBoxContainer
+        FirstChild={onClick => (
+          <AssigneeMenu
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+            onClick={onClick}
+          />
+        )}
+        SecondChild={
+          <AssigneeMenuDropDown
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+          />
+        }
+      />
+      <SideBoxContainer
+        FirstChild={onClick => (
+          <LabelMenu
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+            onClick={onClick}
+          />
+        )}
+        SecondChild={
+          <LabelMenuDropDown
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+          />
+        }
+      />
+      <SideBoxContainer
+        FirstChild={onClick => (
+          <MilestoneMenu
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+            onClick={onClick}
+          />
+        )}
+        SecondChild={
+          <MilestoneDropDown
+            additionalInfo={additionalInfo}
+            setAdditionalInfo={setAdditionalInfo}
+          />
+        }
+      />
     </>
-  );
-};
-
-const SecondChild = () => {
-  return <p>SECOND!!!</p>;
-};
-
-const IssueAside = () => {
-  return (
-    <SideBoxContainer
-      FirstChild={FirstChild}
-      SecondChild={SecondChild}
-    ></SideBoxContainer>
   );
 };
 
