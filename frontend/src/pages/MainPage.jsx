@@ -5,25 +5,32 @@ import Menu from '../components/Menu';
 import {
   useMainDispatch,
   LOAD_MYINFO,
-  LOAD_ISSUE
+  LOAD_ALL_DATA
 } from '../contexts/MainContext';
 
-const Main = () => {
+const MainPage = () => {
   const dispatch = useMainDispatch();
 
   const checkAuthGithub = async () => {
     try {
       const response = await axios.get('/api/auth/login/success');
-      dispatch({ type: LOAD_MYINFO, payload: response.data.user });
+      const user = response.data.user;
+      const payload = {
+        id: user.id,
+        username: user.username,
+        profileImage: user.profileImage,
+        joinUserId: user.JoinUsers[0].id
+      };
+      dispatch({ type: LOAD_MYINFO, payload: payload });
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getIssues = async () => {
+  const getAllData = async () => {
     try {
-      const response = await axios.get('/api/issues?issueTrackerId=1');
-      dispatch({ type: LOAD_ISSUE, payload: response.data.issues });
+      const { data } = await axios.get('/api/allData?issueTrackerId=1');
+      dispatch({ type: LOAD_ALL_DATA, payload: data });
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +38,7 @@ const Main = () => {
 
   useEffect(() => {
     checkAuthGithub();
-    getIssues();
+    getAllData();
   }, []);
 
   return (
@@ -42,4 +49,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;
