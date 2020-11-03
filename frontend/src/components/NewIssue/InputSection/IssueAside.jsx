@@ -1,14 +1,17 @@
 import React from 'react';
-import SideBoxContainer from '../../common/SideBox';
-import { LabelMenu, LabelMenuDropDown } from '../../AsideMenu/LabelMenu.jsx';
+import SideBoxContainer from '@common/SideBox';
+import {
+  LabelMenu,
+  LabelMenuDropDown
+} from '@components/AsideMenu/LabelMenu.jsx';
 import {
   AssigneeMenu,
   AssigneeMenuDropDown
-} from '../../AsideMenu/AssigneeMenu.jsx';
+} from '@components/AsideMenu/AssigneeMenu.jsx';
 import {
   MilestoneMenu,
   MilestoneDropDown
-} from '../../AsideMenu/MilestoneMenu';
+} from '@components/AsideMenu/MilestoneMenu';
 
 const IssueAside = ({ additionalInfo, setAdditionalInfo }) => {
   return (

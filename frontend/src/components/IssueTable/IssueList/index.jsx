@@ -1,7 +1,7 @@
 import React from 'react';
 import Issue from './Issue';
 import { IssueItems } from './style';
-import useFilteredIssues from '../../../hooks/useFilteredIssues';
+import useFilteredIssues from '@hooks/useFilteredIssues';
 
 /* id
  * description,

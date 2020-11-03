@@ -1,9 +1,9 @@
 import React from 'react';
 import { Assignee, DropDownJoinUser } from './Assignee';
-import useInputChange from '../../../hooks/useInputChange';
-import { useMainState } from '../../../contexts/MainContext';
+import useInputChange from '@hooks/useInputChange';
+import { useMainState } from '@contexts/MainContext';
 import { AssigneeContainer, AssigneeDropDownContainer } from './style';
-import Filter from '../../common/Filter';
+import Filter from '@common/Filter';
 
 export const AssigneeMenu = ({ additionalInfo, onClick }) => {
   return (

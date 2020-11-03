@@ -1,8 +1,8 @@
 import React from 'react';
-import useInputChange from '../../../hooks/useInputChange';
-import { axios } from '../../../api';
-import { GreenButton } from '../../common/Buttons';
-import { useMainState } from '../../../contexts/MainContext';
+import useInputChange from '@hooks/useInputChange';
+import { axios } from '@api';
+import { GreenButton } from '@common/Buttons';
+import { useMainState } from '@contexts/MainContext';
 import { useHistory } from 'react-router-dom';
 
 const IssueForm = ({ additionalInfo }) => {

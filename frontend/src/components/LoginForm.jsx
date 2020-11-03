@@ -1,7 +1,7 @@
 import React from 'react';
-import useInputChange from '../hooks/useInputChange';
+import useInputChange from '@hooks/useInputChange';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../api';
+import { BASE_URL } from '@api';
 
 const LoginForm = () => {
   const [id, changeId] = useInputChange('');

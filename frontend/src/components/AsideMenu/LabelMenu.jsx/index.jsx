@@ -1,9 +1,9 @@
 import React from 'react';
-import { useMainState } from '../../../contexts/MainContext';
+import { useMainState } from '@contexts/MainContext';
 import { LabelMenuContainer, LabelMenuDropDownContainer } from './style';
 import { Label, DropDownLabel } from './Label';
-import Filter from '../../common/Filter';
-import useInputChange from '../../../hooks/useInputChange';
+import Filter from '@common/Filter';
+import useInputChange from '@hooks/useInputChange';
 
 export const LabelMenu = ({ additionalInfo, setAdditionalInfo, onClick }) => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
-import SideBox from '../../common/SideBox';
-import { useMainState } from '../../../contexts/MainContext';
+import SideBox from '@common/SideBox';
+import { useMainState } from '@contexts/MainContext';
 import Milestone from './Milestone';
-import Filter from '../../common/Filter';
-import useInputChange from '../../../hooks/useInputChange';
+import Filter from '@common/Filter';
+import useInputChange from '@hooks/useInputChange';
 import { MilestoneMenuContainer, MilestoneContainer } from './style';
 
 export const MilestoneMenu = ({ onClick, additionalInfo }) => {
