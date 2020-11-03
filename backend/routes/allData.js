@@ -46,11 +46,11 @@ router.get('/', async (req, res) => {
       }),
       db.label.findAll({
         where: { issueTrackerId },
-        attributes: ['title', 'description', 'color'],
+        attributes: ['id', 'title', 'description', 'color'],
       }),
       db.milestone.findAll({
         where: { issueTrackerId },
-        attributes: ['title', 'description', 'status', 'dueDate'],
+        attributes: ['id', 'title', 'description', 'status', 'dueDate'],
       }),
       db.joinUser.findAll({
         where: { issueTrackerId },
