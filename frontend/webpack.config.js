@@ -11,7 +11,15 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@contexts': path.resolve(__dirname, 'src/contexts/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@common': path.resolve(__dirname, 'src/components/common/'),
+      '@api': path.resolve(__dirname, 'src/api/')
+    }
   },
   devtool: 'eval-cheap-source-map',
   devServer: {

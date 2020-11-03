@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NewIssue from '../components/NewIssue';
+import NewIssue from '@components/NewIssue';
 
 // SelectedAssignes,Selectedlabels, SelectedMilestone
 

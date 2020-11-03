@@ -1,4 +1,4 @@
-import { useMainState } from '../contexts/MainContext';
+import { useMainState } from '@contexts/MainContext';
 
 const useFilteredIssues = () => {
   const { issues, filterBase } = useMainState();

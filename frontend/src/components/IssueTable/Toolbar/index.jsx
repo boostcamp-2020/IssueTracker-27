@@ -1,5 +1,5 @@
 import React from 'react';
-import { DetailsBox } from '../../common/DetailsBox';
+import { DetailsBox } from '@common/DetailsBox';
 import {
   ToolbarContainer,
   BaseOptionContainer,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GreenButton, TagButton } from '../common/Buttons';
+import { GreenButton, TagButton } from '@common/Buttons';
 import Filter from './Filter';
 import { Link } from 'react-router-dom';
 import MenuContainer from './style';

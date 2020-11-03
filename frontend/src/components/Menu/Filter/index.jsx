@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { useMainState } from '../../../contexts/MainContext.jsx';
-import useInputChange from '../../../hooks/useInputChange.js';
+import { useMainState } from '@contexts/MainContext.jsx';
+import useInputChange from '@hooks/useInputChange.js';
 import FilterContainer from './style.js';
 
 const baseMap = {
