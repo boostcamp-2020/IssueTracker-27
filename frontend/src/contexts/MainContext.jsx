@@ -22,7 +22,8 @@ export const ContextProvider = ({ children }) => {
     myInfo: {},
     issues: [],
     labels: [],
-    milestones: []
+    milestones: [],
+    joinUsers: []
   });
 
   return (
