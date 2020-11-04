@@ -11,22 +11,6 @@ import {
 const MainPage = () => {
   const dispatch = useMainDispatch();
 
-  const checkAuthGithub = async () => {
-    try {
-      const response = await axios.get('/api/auth/login/success');
-      const user = response.data.user;
-      const payload = {
-        id: user.id,
-        username: user.username,
-        profileImage: user.profileImage,
-        joinUserId: user.JoinUsers[0].id
-      };
-      dispatch({ type: LOAD_MYINFO, payload: payload });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const getAllData = async () => {
     try {
       const { data } = await axios.get('/api/allData?issueTrackerId=1');
@@ -37,7 +21,6 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    checkAuthGithub();
     getAllData();
   }, []);
 

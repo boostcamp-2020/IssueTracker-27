@@ -7,24 +7,24 @@ import MilestonePage from './pages/MilestonePage';
 import LabelPage from './pages/LabelPage';
 import NewIssuePage from './pages/NewIssuePage';
 import Header from './components/common/Header';
+import useCheckAuth from '@hooks/useCheckAuth';
 import '../public/reset.css';
-import { ContextProvider } from './contexts/MainContext';
 
 const App = () => {
+  useCheckAuth();
+
   return (
-    <ContextProvider>
-      <Router>
-        <Header />
-        <Switch>
-          <Route path='/new-issue' component={NewIssuePage} />
-          <Route path='/milestone' component={MilestonePage} />
-          <Route path='/label' component={LabelPage} />
-          <Route path='/main' component={MainPage} />
-          <Route exact path='/' component={LoginPage} />
-          <Route component={NoMatchPage} />
-        </Switch>
-      </Router>
-    </ContextProvider>
+    <>
+      <Header />
+      <Switch>
+        <Route path='/new-issue' component={NewIssuePage} />
+        <Route path='/milestone' component={MilestonePage} />
+        <Route path='/label' component={LabelPage} />
+        <Route path='/login' component={LoginPage} />
+        <Route exact path='/' component={MainPage} />
+        <Route component={NoMatchPage} />
+      </Switch>
+    </>
   );
 };
 
