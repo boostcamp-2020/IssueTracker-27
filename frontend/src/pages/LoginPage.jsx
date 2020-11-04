@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '@components/LoginForm';
 
 const LoginSection = styled.section`
   display: flex;

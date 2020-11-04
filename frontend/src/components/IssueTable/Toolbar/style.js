@@ -1,5 +1,13 @@
 import styled from '@emotion/styled';
 
-const ToolbarContainer = styled.nav``;
+export const ToolbarContainer = styled.nav`
+  display: flex;
+  justify-content: space-between;
+`;
 
-export default ToolbarContainer;
+export const BaseOptionContainer = styled.div`
+  display: flex;
+`;
+export const DetailOptionContainer = styled.div`
+  display: flex;
+`;

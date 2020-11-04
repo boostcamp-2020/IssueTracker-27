@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { axios } from '../api';
-import IssueTable from '../components/IssueTable';
-import Menu from '../components/Menu';
+import { axios } from '@api';
+import IssueTable from '@components/IssueTable';
+import Menu from '@components/Menu';
 import {
   useMainDispatch,
   LOAD_MYINFO,
