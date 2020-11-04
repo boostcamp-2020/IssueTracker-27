@@ -1,16 +1,9 @@
 import styled from '@emotion/styled';
 
-export const AssigneeContainer = styled.section`
-  position: relative;
-
-  & .assignee_header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  & .assignee_title {
-    font-weight: bold;
-  }
+export const AssigneeList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 `;
 
 export const AssigneeDropDownContainer = styled.section`

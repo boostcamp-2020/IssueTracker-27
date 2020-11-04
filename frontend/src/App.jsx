@@ -9,6 +9,11 @@ import NewIssuePage from './pages/NewIssuePage';
 import Header from './components/common/Header';
 import useCheckAuth from '@hooks/useCheckAuth';
 import '../public/reset.css';
+import styled from '@emotion/styled';
+
+const MainContainer = styled.div`
+  padding: 2rem;
+`;
 
 const App = () => {
   useCheckAuth();
@@ -16,14 +21,16 @@ const App = () => {
   return (
     <>
       <Header />
-      <Switch>
-        <Route path='/new-issue' component={NewIssuePage} />
-        <Route path='/milestone' component={MilestonePage} />
-        <Route path='/label' component={LabelPage} />
-        <Route path='/login' component={LoginPage} />
-        <Route exact path='/' component={MainPage} />
-        <Route component={NoMatchPage} />
-      </Switch>
+      <MainContainer>
+        <Switch>
+          <Route path='/new-issue' component={NewIssuePage} />
+          <Route path='/milestone' component={MilestonePage} />
+          <Route path='/label' component={LabelPage} />
+          <Route path='/login' component={LoginPage} />
+          <Route exact path='/' component={MainPage} />
+          <Route component={NoMatchPage} />
+        </Switch>
+      </MainContainer>
     </>
   );
 };
