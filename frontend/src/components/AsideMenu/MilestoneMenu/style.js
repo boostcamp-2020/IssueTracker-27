@@ -1,30 +1,14 @@
 import styled from '@emotion/styled';
 
-export const MilestoneMenuContainer = styled.div`
-  & .milestone-menu-title {
-    display: flex;
-    justify-content: space-between;
+export const MilestoneSelected = styled.section`
+  & .graph {
+    height: 0.8rem;
+    background: #cccccc;
+    border-radius: 40px;
   }
-  & .title {
+  & .milestone_selected_title {
     font-size: 1.1rem;
     color: #70767d;
-  }
-
-  & .icon {
-    font-size: 1.1rem;
-    color: #9ca2aa;
-  }
-
-  & .milestone-menu-content {
-    & .graph {
-      height: 0.8rem;
-      background: #cccccc;
-      border-radius: 40px;
-    }
-    & .milestone-menu-content-title {
-      font-size: 1.1rem;
-      color: #70767d;
-    }
   }
 `;
 

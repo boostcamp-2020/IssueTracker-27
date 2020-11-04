@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 
 const SideBoxWrapper = styled.div`
   position: relative;
-  left: 10rem;
   height: 6rem;
   width: 20rem;
   border-bottom: 1px solid lightgrey;
   padding: 1rem 0rem;
+  margin-left: 2rem;
 `;
 
 const SideBox = ({ children }) => {
