@@ -28,7 +28,7 @@ const IssueForm = ({ additionalInfo }) => {
         assigneeIds
       };
       const response = await axios.post('/api/issue', body);
-      history.push('/main');
+      history.push('/');
     } catch (error) {
       console.log(error);
     }
