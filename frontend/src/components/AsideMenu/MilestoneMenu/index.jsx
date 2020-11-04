@@ -4,30 +4,22 @@ import { useMainState } from '@contexts/MainContext';
 import Milestone from './Milestone';
 import Filter from '@common/Filter';
 import useInputChange from '@hooks/useInputChange';
-import { MilestoneMenuContainer, MilestoneContainer } from './style';
+import { MilestoneSelected, MilestoneContainer } from './style';
 
-export const MilestoneMenu = ({ onClick, additionalInfo }) => {
+export const MilestoneMenu = ({ additionalInfo }) => {
   return (
-    <MilestoneMenuContainer>
-      <section className='milestone-menu-title'>
-        <div className='title'>Milestone</div>
-        <div className='icon' onClick={onClick}>
-          <i className='fas fa-cog'></i>
-        </div>
-      </section>
-      <section className='milestone-menu-content'>
-        {additionalInfo.milestone ? (
-          <>
-            <div className='graph'></div>
-            <div className='milestone-menu-content-title'>
-              {additionalInfo.milestone.title}
-            </div>
-          </>
-        ) : (
-          <div>No milestone</div>
-        )}
-      </section>
-    </MilestoneMenuContainer>
+    <MilestoneSelected>
+      {additionalInfo.milestone ? (
+        <>
+          <div className='graph'></div>
+          <div className='milestone_selected_title'>
+            {additionalInfo.milestone.title}
+          </div>
+        </>
+      ) : (
+        <div>No milestone</div>
+      )}
+    </MilestoneSelected>
   );
 };
 

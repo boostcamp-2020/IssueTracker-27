@@ -2,28 +2,20 @@ import React from 'react';
 import { Assignee, DropDownJoinUser } from './Assignee';
 import useInputChange from '@hooks/useInputChange';
 import { useMainState } from '@contexts/MainContext';
-import { AssigneeContainer, AssigneeDropDownContainer } from './style';
+import { AssigneeList, AssigneeDropDownContainer } from './style';
 import Filter from '@common/Filter';
 
-export const AssigneeMenu = ({ additionalInfo, onClick }) => {
+export const AssigneeMenu = ({ additionalInfo }) => {
   return (
-    <AssigneeContainer>
-      <div className='assignee_header'>
-        <div className='assignee_title'>Assignees</div>
-        <div className='setting_btn' onClick={onClick}>
-          <i className='fas fa-cog'></i>
-        </div>
-      </div>
-      <ul>
-        {additionalInfo.assignees.length ? (
-          additionalInfo.assignees.map(assignee => (
-            <Assignee key={assignee.id} assignee={assignee} />
-          ))
-        ) : (
-          <li>No one - assign yourself</li>
-        )}
-      </ul>
-    </AssigneeContainer>
+    <AssigneeList>
+      {additionalInfo.assignees.length ? (
+        additionalInfo.assignees.map(assignee => (
+          <Assignee key={assignee.id} assignee={assignee} />
+        ))
+      ) : (
+        <li>No one - assign yourself</li>
+      )}
+    </AssigneeList>
   );
 };
 

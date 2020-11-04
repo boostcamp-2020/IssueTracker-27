@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Link to='/main'>
+      <Link to='/'>
         <i className='fas fa-book'></i>&nbsp; ISSUES
       </Link>
     </HeaderContainer>
