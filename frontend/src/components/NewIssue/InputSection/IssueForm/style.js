@@ -19,6 +19,16 @@ const IssueFormContainer = styled.form`
     justify-content: space-between;
   }
 
+  & .issue_form_text_area {
+    position: relative;
+    width: 100%;
+  }
+  & .issue_form_character_length {
+    position: absolute;
+    bottom: 1.8rem;
+    right: 0.5rem;
+  }
+
   & input {
     height: 2.5rem;
     font-size: 1.3rem;
@@ -27,6 +37,7 @@ const IssueFormContainer = styled.form`
 
   & textarea {
     height: 45vh;
+    width: 100%;
     min-height: 15rem;
     resize: vertical;
     font-size: 1.5rem;

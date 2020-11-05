@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import useInputChange from '@hooks/useInputChange';
 import { axios } from '@api';
 import { RedButton, GreenButton } from '@common/Buttons';
 import { useMainState } from '@contexts/MainContext';
 import { useHistory } from 'react-router-dom';
 import IssueFormContainer from './style';
+import useDebouncer from './useDebouncer';
 
 const IssueForm = ({ additionalInfo }) => {
   const [title, changeTitle] = useInputChange('');
   const [description, changeDescription] = useInputChange('');
+  const [isDisabled, setisDisabled] = useState(true);
+  const [showTextLength, setShowTextLength] = useState(false);
   const { myInfo } = useMainState();
   const history = useHistory();
+
+  useDebouncer({ description, showTextLength, setShowTextLength });
+
+  useEffect(() => {
+    if (title.length) setisDisabled(false);
+    else setisDisabled(true);
+  }, [title]);
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -18,7 +28,6 @@ const IssueForm = ({ additionalInfo }) => {
       const labelIds = additionalInfo.labels.map(label => label.id);
       const assigneeIds = additionalInfo.assignees.map(assignee => assignee.id);
       const milestone = additionalInfo.milestone?.id;
-
       const body = {
         joinUserId: myInfo.joinUserId,
         issueTrackerId: 1,
@@ -38,14 +47,23 @@ const IssueForm = ({ additionalInfo }) => {
   return (
     <IssueFormContainer onSubmit={onSubmit}>
       <input value={title} onChange={changeTitle} placeholder='Title'></input>
-      <textarea
-        value={description}
-        onChange={changeDescription}
-        placeholder='Leave a comment'
-      ></textarea>
+      <div className='issue_form_text_area'>
+        <textarea
+          value={description}
+          onChange={changeDescription}
+          placeholder='Leave a comment'
+        />
+        <div className='issue_form_character_length'>
+          {showTextLength && `${description.length} characters`}
+        </div>
+      </div>
       <div className='issue_form_btns'>
-        <RedButton width='6rem'>Cancel</RedButton>
-        <GreenButton width='11rem'>Sumit new issue</GreenButton>
+        <RedButton width='6rem' type='button'>
+          Cancel
+        </RedButton>
+        <GreenButton width='11rem' disabled={isDisabled}>
+          Submit new issue
+        </GreenButton>
       </div>
     </IssueFormContainer>
   );
