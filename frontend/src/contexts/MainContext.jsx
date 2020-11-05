@@ -27,10 +27,8 @@ const reducer = (state, action) => {
           isOpen: true,
           labels: [],
           author: '',
-          projects: [],
           milestone: '',
-          assignee: '',
-          sort: ''
+          assignee: ''
         }
       };
 

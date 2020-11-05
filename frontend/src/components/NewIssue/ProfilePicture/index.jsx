@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMainState } from '@contexts/MainContext';
 import ProfileContainer from './style';
 import useMyInfo from '@hooks/useMyInfo';
 

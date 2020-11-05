@@ -1,7 +1,6 @@
 import React from 'react';
 import Issue from './Issue';
 import { IssueItems } from './style';
-import useFilteredIssues from '@hooks/useFilteredIssues';
 
 /* id
  * description,
@@ -24,13 +23,16 @@ import useFilteredIssues from '@hooks/useFilteredIssues';
  * issue.openAt: issue 오픈날
  */
 
-const IssueList = () => {
-  const filteredIssues = useFilteredIssues();
-
+const IssueList = ({ checkState, setCheckState, filteredIssues }) => {
   return (
     <IssueItems>
       {filteredIssues.map(issue => (
-        <Issue key={issue.id} issue={issue} />
+        <Issue
+          key={issue.id}
+          issue={issue}
+          checkState={checkState[issue.id]}
+          setCheckState={setCheckState}
+        />
       ))}
     </IssueItems>
   );

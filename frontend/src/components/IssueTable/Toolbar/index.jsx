@@ -6,13 +6,16 @@ import {
   DetailOptionContainer
 } from './style';
 
-const Toolbar = () => {
+const Toolbar = ({ isCheckAll, toggleIsCheckAll, checkedNumber }) => {
   return (
     <ToolbarContainer>
       <BaseOptionContainer>
-        <input type='checkbox' />
-        <span>ㅇㅇ</span>
-        <span>ㅇㅇ</span>
+        <input
+          type='checkbox'
+          checked={isCheckAll}
+          onChange={toggleIsCheckAll}
+        />
+        <span>{checkedNumber ? `${checkedNumber} selected` : ''}</span>
       </BaseOptionContainer>
 
       <DetailOptionContainer>
