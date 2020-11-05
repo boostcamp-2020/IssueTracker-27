@@ -6,7 +6,7 @@ import Title from './Title';
 import Icon from './Icon';
 import Opened from './Opened';
 
-const Issue = ({ issue }) => {
+const Issue = ({ issue, checkState, setCheckState }) => {
   /**
    * id
    * description,
@@ -29,9 +29,17 @@ const Issue = ({ issue }) => {
    * issue.openAt: issue 오픈날
    */
 
+  const onChange = () => {
+    setCheckState(prev => ({ ...prev, [issue.id]: !prev[issue.id] }));
+  };
+
   return (
     <IssueItem>
-      <input type='checkbox'></input>
+      <input
+        type='checkbox'
+        checked={checkState || false}
+        onChange={onChange}
+      />
       <Icon status={issue.status} />
       <div className='issue_content'>
         <div>

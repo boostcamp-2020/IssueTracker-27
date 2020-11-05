@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NoMatchPage from './pages/NoMatchPage';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
