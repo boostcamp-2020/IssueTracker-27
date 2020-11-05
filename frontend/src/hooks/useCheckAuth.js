@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import { axios } from '@api';
-import {
-  useMainState,
-  useMainDispatch,
-  LOAD_MYINFO
-} from '@contexts/MainContext';
+import useMyInfo from '@hooks/useMyInfo';
+import { useMainDispatch, LOAD_MYINFO } from '@contexts/MainContext';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useCheckAuth = () => {
@@ -12,7 +9,7 @@ const useCheckAuth = () => {
   const history = useHistory();
   const location = useLocation();
   const pathsToCheck = ['/new-issue'];
-  const { myInfo } = useMainState();
+  const myInfo = useMyInfo();
 
   const checkAuth = async () => {
     if (myInfo.id) return;
