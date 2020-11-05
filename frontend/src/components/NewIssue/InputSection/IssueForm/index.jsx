@@ -44,6 +44,10 @@ const IssueForm = ({ additionalInfo }) => {
     }
   };
 
+  const onCancel = () => {
+    history.goBack();
+  };
+
   return (
     <IssueFormContainer onSubmit={onSubmit}>
       <input value={title} onChange={changeTitle} placeholder='Title'></input>
@@ -58,7 +62,7 @@ const IssueForm = ({ additionalInfo }) => {
         </div>
       </div>
       <div className='issue_form_btns'>
-        <RedButton width='6rem' type='button'>
+        <RedButton width='6rem' type='button' onClick={onCancel}>
           Cancel
         </RedButton>
         <GreenButton width='11rem' disabled={isDisabled}>
