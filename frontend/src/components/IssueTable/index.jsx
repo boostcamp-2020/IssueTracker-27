@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
-import styled from '@emotion/styled';
+import React, { useMemo } from 'react';
 import Toolbar from './Toolbar';
 import IssueList from './IssueList';
 import IssueTableContainer from './style';
