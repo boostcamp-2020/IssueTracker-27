@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useToggle from '@hooks/useToggle';
 import styled from '@emotion/styled';
 
 const SideBoxWrapper = styled.div`
@@ -26,13 +27,11 @@ const DropDownBox = ({ children }) => {
 };
 
 const SideBoxContainer = ({ FirstChild, SecondChild }) => {
-  const [isShow, setIsShow] = useState(false);
-
-  const toggleIsShow = () => setIsShow(isShow => !isShow);
+  const [isShow, showToggle] = useToggle(false);
 
   return (
     <SideBox>
-      {FirstChild(toggleIsShow)}
+      {FirstChild(showToggle)}
       {isShow && <DropDownBox>{SecondChild}</DropDownBox>}
     </SideBox>
   );
