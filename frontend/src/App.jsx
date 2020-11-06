@@ -1,27 +1,37 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NoMatch from './pages/NoMatch';
-import Main from './pages/Main';
-import Login from './pages/Login';
-import Milestone from './pages/Milestone';
-import Label from './pages/Label';
-import NewIssue from './pages/NewIssue';
+import { Switch, Route } from 'react-router-dom';
+import NoMatchPage from './pages/NoMatchPage';
+import MainPage from './pages/MainPage';
+import LoginPage from './pages/LoginPage';
+import MilestonePage from './pages/MilestonePage';
+import LabelPage from './pages/LabelPage';
+import NewIssuePage from './pages/NewIssuePage';
 import Header from './components/common/Header';
+import useCheckAuth from '@hooks/useCheckAuth';
 import '../public/reset.css';
+import styled from '@emotion/styled';
+
+const MainContainer = styled.div`
+  padding: 2rem;
+`;
 
 const App = () => {
+  useCheckAuth();
+
   return (
-    <Router>
-      <Header/>
-      <Switch>
-        <Route path='/new-issue' component={NewIssue}/>
-        <Route path='/milestone' component={Milestone} />
-        <Route path='/label' component={Label} />
-        <Route path='/main' component={Main} />
-        <Route exact path='/' component={Login} />
-        <Route component={NoMatch} />
-      </Switch>
-    </Router>
+    <>
+      <Header />
+      <MainContainer>
+        <Switch>
+          <Route path='/new-issue' component={NewIssuePage} />
+          <Route path='/milestone' component={MilestonePage} />
+          <Route path='/label' component={LabelPage} />
+          <Route path='/login' component={LoginPage} />
+          <Route exact path='/' component={MainPage} />
+          <Route component={NoMatchPage} />
+        </Switch>
+      </MainContainer>
+    </>
   );
 };
 

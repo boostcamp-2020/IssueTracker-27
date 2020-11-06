@@ -1,8 +1,12 @@
 import React from 'react';
 import { IssueItem } from './style';
+import Labels from './Labels';
+import Milestone from './Milestone';
+import Title from './Title';
+import Icon from './Icon';
+import Opened from './Opened';
 
-const Issue = ({ issue }) => {
-  console.log(issue);
+const Issue = ({ issue, checkState, setCheckState }) => {
   /**
    * id
    * description,
@@ -25,9 +29,32 @@ const Issue = ({ issue }) => {
    * issue.openAt: issue 오픈날
    */
 
+  const onChange = () => {
+    setCheckState(prev => ({ ...prev, [issue.id]: !prev[issue.id] }));
+  };
+
   return (
     <IssueItem>
-      {issue.title} | {issue.id} | {issue.JoinUser.User.username} |
+      <input
+        type='checkbox'
+        checked={checkState || false}
+        onChange={onChange}
+      />
+      <Icon status={issue.status} />
+      <div className='issue_content'>
+        <div>
+          <Title title={issue.title} />
+          <Labels issueLabels={issue.IssueLabels} />
+        </div>
+        <div>
+          <Opened
+            openAt={issue.openAt}
+            username={issue.JoinUser.User.username}
+          />
+          {issue.Milestone && <Milestone milestone={issue.Milestone} />}
+        </div>
+      </div>
+      {/* 뒤에 추가 적인 내용 */}
     </IssueItem>
   );
 };

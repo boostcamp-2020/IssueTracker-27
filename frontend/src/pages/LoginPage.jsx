@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '@components/LoginForm';
 
 const LoginSection = styled.section`
   display: flex;
@@ -32,7 +32,7 @@ const LoginSection = styled.section`
   }
 `;
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <LoginSection>
       <h1>이슈 트래커</h1>
@@ -41,4 +41,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

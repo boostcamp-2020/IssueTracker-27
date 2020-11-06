@@ -5,11 +5,11 @@ module.exports = class Label extends Sequelize.Model {
     return super.init(
       {
         title: {
-          type: Sequelize.STRING(30),
+          type: Sequelize.STRING(50),
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING(30),
+          type: Sequelize.STRING(100),
           allowNull: true,
         },
         color: {

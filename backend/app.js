@@ -8,7 +8,7 @@ require('dotenv').config();
 const { sequelize } = require('./models');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
-const issuesRouter = require('./routes/issues');
+const allDataRouter = require('./routes/allData');
 const issueRouter = require('./routes/issue');
 const session = require('express-session');
 const cors = require('cors');
@@ -17,7 +17,7 @@ const app = express();
 process.env.ENV === 'development' &&
   app.use(
     cors({
-      origin: 'http://localhost:3000',
+      origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
       credentials: true,
     })
   );
@@ -41,7 +41,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.ENV === 'development' ? false : true },
+    cookie: { secure: false },
   })
 );
 app.use(passport.initialize());
@@ -51,7 +51,7 @@ passportConfig();
 app.use('/api', indexRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/issue', issueRouter);
-app.use('/api/issues', issuesRouter);
+app.use('/api/allData', allDataRouter);
 
 process.env.ENV === 'production' &&
   app.get('*', (req, res) => {
