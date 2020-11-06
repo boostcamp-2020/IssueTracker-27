@@ -14,6 +14,7 @@ const useCheckAuth = () => {
   const checkAuth = async () => {
     if (myInfo.id) return;
     if (!pathsToCheck.includes(location.pathname)) return;
+
     try {
       const response = await axios.get('/api/auth/login/success');
       const user = response.data.user;
