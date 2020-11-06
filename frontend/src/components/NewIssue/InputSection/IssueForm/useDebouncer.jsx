@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+const WAITING_TIME = 2000;
 
 const debounce = (func, time = 500) => {
   let timer = null;
@@ -19,15 +20,15 @@ const useDebouncer = ({ description, showTextLength, setShowTextLength }) => {
   const mounted = useRef(false);
   const isCleanedUp = useRef(false);
 
-  let debouncer = useRef(
+  const debouncer = useRef(
     debounce(() => {
       setShowTextLength(true);
       setTimeout(() => {
         if (isCleanedUp.current) {
           setShowTextLength(false);
         }
-      }, 2000);
-    }, 2000)
+      }, WAITING_TIME);
+    }, WAITING_TIME)
   ).current;
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const useDebouncer = ({ description, showTextLength, setShowTextLength }) => {
     }
     if (showTextLength) setShowTextLength(false);
     isCleanedUp.current = true;
-    let timer = debouncer();
+    const timer = debouncer();
     return () => {
       clearTimeout(timer);
       isCleanedUp.current = false;
