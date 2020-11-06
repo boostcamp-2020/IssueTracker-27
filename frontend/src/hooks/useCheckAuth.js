@@ -22,7 +22,7 @@ const useCheckAuth = () => {
         id: user.id,
         username: user.username,
         profileImage: user.profileImage,
-        joinUserId: user.JoinUsers[0].id
+        joinUserId: user?.JoinUsers?.length && user.JoinUsers[0].id
       };
       dispatch({ type: LOAD_MYINFO, payload: payload });
     } catch (error) {
