@@ -10,6 +10,7 @@ import Header from './components/common/Header';
 import useCheckAuth from '@hooks/useCheckAuth';
 import '../public/reset.css';
 import styled from '@emotion/styled';
+import IssueDetailPage from './pages/IssueDetailPage';
 
 const MainContainer = styled.div`
   height: 90%;
@@ -25,6 +26,7 @@ const App = () => {
       <Header />
       <MainContainer>
         <Switch>
+          <Route path='/issue/:id' component={IssueDetailPage} />
           <Route path='/new-issue' component={NewIssuePage} />
           <Route path='/milestone' component={MilestonePage} />
           <Route path='/label' component={LabelPage} />
