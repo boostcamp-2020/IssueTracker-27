@@ -9,17 +9,17 @@ const useFilteredIssues = () => {
         if (
           typeof filterBase.isOpen === 'boolean' &&
           issue.status !== filterBase.isOpen
-        ) {
+        )
           return false;
-        }
+
         if (
           filterBase.labels.length &&
           !issue.IssueLabels.every(target =>
             filterBase.labels.some(label => target.Label.id === label.id)
           )
-        ) {
+        )
           return false;
-        }
+
         if (filterBase.author.id && issue.JoinUser.id !== filterBase.author.id)
           return false;
 

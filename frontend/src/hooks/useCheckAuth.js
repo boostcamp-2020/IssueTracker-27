@@ -14,6 +14,7 @@ const useCheckAuth = () => {
   const checkAuth = async () => {
     if (myInfo.id) return;
     if (!pathsToCheck.includes(location.pathname)) return;
+
     try {
       const response = await axios.get('/api/auth/login/success');
       const user = response.data.user;
@@ -21,7 +22,7 @@ const useCheckAuth = () => {
         id: user.id,
         username: user.username,
         profileImage: user.profileImage,
-        joinUserId: user.JoinUsers[0].id
+        joinUserId: user?.JoinUsers?.length && user.JoinUsers[0].id
       };
       dispatch({ type: LOAD_MYINFO, payload: payload });
     } catch (error) {
