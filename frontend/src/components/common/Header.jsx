@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const HeaderContainer = styled.header`
-  height: 5rem;
+  height: 10vh;
   width: 100%;
-  line-height: 5rem;
+  line-height: 10vh;
   background-color: #24292e;
   font-weight: 700;
   text-align: center;
