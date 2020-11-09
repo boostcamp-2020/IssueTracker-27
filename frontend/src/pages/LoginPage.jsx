@@ -9,12 +9,23 @@ const LoginSection = styled.section`
   align-items: center;
   width: 100%;
   height: 100%;
+
+  & img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+
+    @media screen and (max-width: 580px) {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
 `;
 
 const LoginPage = () => {
   return (
     <LoginSection>
-      <h1>이슈 트래커</h1>
+      <img src='../../public/logoColor.png' alt='로고'></img>
       <LoginForm />
     </LoginSection>
   );

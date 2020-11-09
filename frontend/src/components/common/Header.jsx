@@ -9,7 +9,11 @@ const HeaderContainer = styled.header`
   background-color: #24292e;
   font-weight: 700;
   text-align: center;
+  text-transform: uppercase;
 
+  & h1 {
+    font-size: 1.1rem;
+  }
   & a {
     color: white;
     text-decoration: none;
@@ -21,7 +25,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to='/'>
-        <i className='fas fa-book'></i>&nbsp; ISSUES
+        <h1>
+          <i className='fas fa-book'></i>&nbsp; Tracker Hunter
+        </h1>
       </Link>
     </HeaderContainer>
   );
