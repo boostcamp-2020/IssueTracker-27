@@ -29,12 +29,15 @@ export const MilestoneDropDown = ({ additionalInfo, setAdditionalInfo }) => {
 
   return (
     <MilestoneContainer>
-      <div className='milestone_list_header'>Set milestone</div>
-      <Filter
-        value={milestoneInput}
-        onChange={changeMilestoneInput}
-        placeholder={'Filter milestones'}
-      />
+      <div className='aside_drop_down_header'>Set milestone</div>
+      <div className='aside_drop_down_filter'>
+        <Filter
+          value={milestoneInput}
+          onChange={changeMilestoneInput}
+          placeholder={'Filter milestones'}
+          isAside={true}
+        />
+      </div>
       <ul className='milestone_list_content'>
         {milestones.map(milestone => (
           <Milestone

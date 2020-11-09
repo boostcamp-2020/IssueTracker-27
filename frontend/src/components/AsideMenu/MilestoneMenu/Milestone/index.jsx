@@ -15,14 +15,16 @@ const Milestone = ({ milestone, additionalInfo, setAdditionalInfo }) => {
 
   return (
     <MilestoneItem onClick={clickMilestone}>
-      {isSelected && (
-        <div>
-          <i className='fas fa-check'></i>
-        </div>
-      )}
-      <section>
-        <div className='milestone-title'>{milestone.title}</div>
-        <div className='milestone-duedate'>
+      <div className='blank'>
+        {isSelected && (
+          <div className='icon'>
+            <i className='fas fa-check'></i>
+          </div>
+        )}
+      </div>
+      <section className='milestone_section'>
+        <div className='milestone_title'>{milestone.title}</div>
+        <div className='milestone_duedate'>
           {milestone.dueDate ? `${milestone.dueDate}` : 'No due date'}
         </div>
       </section>

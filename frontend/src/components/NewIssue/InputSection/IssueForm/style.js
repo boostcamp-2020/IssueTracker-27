@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const IssueFormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 65%;
   margin-left: 2rem;
   padding: 0.8rem;
   border-radius: 0.5rem;

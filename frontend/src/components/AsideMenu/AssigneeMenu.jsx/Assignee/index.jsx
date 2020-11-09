@@ -1,8 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { DropDownJoinUserContainer } from './style';
 
 export const Assignee = ({ assignee }) => {
-  return <li>{assignee.User.username}</li>;
+  return (
+    <DropDownJoinUserContainer>
+      <span>
+        <img src={assignee.User.profileImage} alt='profile'></img>
+      </span>
+      <span>{assignee.User.username}</span>
+    </DropDownJoinUserContainer>
+  );
 };
 
 export const DropDownJoinUser = ({
@@ -27,14 +35,16 @@ export const DropDownJoinUser = ({
   };
 
   return (
-    <li onClick={clickAssignee}>
+    <DropDownJoinUserContainer onClick={clickAssignee}>
       {isSelected && (
-        <span>
+        <span className='check_mark'>
           <i className='fas fa-check'></i>
         </span>
       )}
-      {/* <img src={joinUser.User.profileImage} alt='profile'></img> |{' '} */}
-      {joinUser.User.username}
-    </li>
+      <span>
+        <img src={joinUser.User.profileImage} alt='profile'></img>
+      </span>
+      <span>{joinUser.User.username}</span>
+    </DropDownJoinUserContainer>
   );
 };

@@ -12,7 +12,9 @@ import '../public/reset.css';
 import styled from '@emotion/styled';
 
 const MainContainer = styled.div`
-  padding: 2rem;
+  height: 90%;
+  padding: 0 2rem;
+  background-color: #f9f9f9;
 `;
 
 const App = () => {
