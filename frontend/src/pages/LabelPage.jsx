@@ -3,13 +3,13 @@ import ItemBox from '@components/ItemBox';
 import LabelTable from '@components/LabelTable'
 
 const LabelPage = () => {
-  const [newLabelIsShow, setLabelIsShow] = useState(false);
+  const [nowLabelIsShow, setLabelIsShow] = useState(false);
 
   const onClick = () => {
-    setLabelIsShow(newLabelIsShow => !newLabelIsShow);
+    setLabelIsShow(nowLabelIsShow => !nowLabelIsShow);
   }
 
-  return <ItemBox type={'label'} onClick={onClick}><LabelTable  newLabelIsShow={newLabelIsShow}/></ItemBox>;
+  return <ItemBox type={'label'} onClick={onClick}><LabelTable  nowLabelIsShow={nowLabelIsShow}/></ItemBox>;
 };
 
 export default LabelPage;
