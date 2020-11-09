@@ -33,7 +33,7 @@ const FormContainer = styled.form`
   & .local_button_wrapper {
     display: flex;
     justify-content: space-around;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
     & button {
       border: none;
       color: #72a3e7;
