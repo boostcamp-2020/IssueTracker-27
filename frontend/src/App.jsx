@@ -13,7 +13,7 @@ import styled from '@emotion/styled';
 
 const MainContainer = styled.div`
   height: 90%;
-  padding: 0 2rem;
+  padding: 2rem;
   background-color: #f9f9f9;
 `;
 

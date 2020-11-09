@@ -8,11 +8,11 @@ import styled from '@emotion/styled';
 const FormContainer = styled.form`
   width: 50%;
   min-width: 350px;
-  height: 45%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  padding: 2rem;
+  padding: 1.5rem;
   border: 1px solid #e1e5e8;
   background-color: #ffffff;
 
@@ -33,7 +33,7 @@ const FormContainer = styled.form`
   & .local_button_wrapper {
     display: flex;
     justify-content: space-around;
-    margin: 1.5rem 0;
+    margin-top: auto;
     & button {
       border: none;
       color: #72a3e7;
