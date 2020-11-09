@@ -3,7 +3,6 @@ import { MileStoneTileContainer } from './style';
 
 // attributes: ['id', 'title', 'description', 'status', 'dueDate'],
 const MileStoneTile = ({ milestones }) => {
-
   return (
     <MileStoneTileContainer>
       <div>
@@ -16,7 +15,6 @@ const MileStoneTile = ({ milestones }) => {
         <div></div>
         <div></div>
       </div>
-
     </MileStoneTileContainer>
   );
 };

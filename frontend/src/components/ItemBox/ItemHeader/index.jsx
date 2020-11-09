@@ -3,9 +3,7 @@ import ItemHeaderContainer from './style';
 import { GreenButton, TagButton } from '@common/Buttons';
 import { Link } from 'react-router-dom';
 
-
-const ItemHeader = ({ type, onClick}) => {
-
+const ItemHeader = ({ type, onClick }) => {
   return (
     <ItemHeaderContainer>
       <div>
@@ -26,9 +24,7 @@ const ItemHeader = ({ type, onClick}) => {
         </GreenButton>
       ) : (
         <Link to='/new-milestone'>
-          <GreenButton width='5rem'>
-            'New Milestone'
-          </GreenButton>
+          <GreenButton width='5rem'>'New Milestone'</GreenButton>
         </Link>
       )}
     </ItemHeaderContainer>
