@@ -7,29 +7,8 @@ const LoginSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
-  height: 100vh;
-
-  & form {
-    width: 30%;
-    min-width: 350px;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    background-color: #ffffff;
-
-    & label {
-      width: 100%;
-      display: block;
-    }
-
-    & input {
-      width: 100%;
-      min-width: 330px;
-      height: 2rem;
-    }
-  }
+  width: 100%;
+  height: 100%;
 `;
 
 const LoginPage = () => {
