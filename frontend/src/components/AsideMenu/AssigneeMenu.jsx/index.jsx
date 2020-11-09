@@ -25,13 +25,18 @@ export const AssigneeMenuDropDown = ({ additionalInfo, setAdditionalInfo }) => {
 
   return (
     <AssigneeDropDownContainer>
-      <div className='assign_title'>Assign up to 10 people to this issue</div>
-      <Filter
-        value={username}
-        onChange={changeUsername}
-        placeholder='Type or choose a name'
-      />
-      <ul>
+      <div className='aside_drop_down_header'>
+        Assign up to 10 people to this issue
+      </div>
+      <div className='aside_drop_down_filter'>
+        <Filter
+          value={username}
+          onChange={changeUsername}
+          placeholder='Type or choose a name'
+          isAside={true}
+        />
+      </div>
+      <ul className='aside_drop_down_list'>
         {joinUsers.map(joinUser => (
           <DropDownJoinUser
             additionalInfo={additionalInfo}
