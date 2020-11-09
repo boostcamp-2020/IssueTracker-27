@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import ItemBox from '@components/ItemBox';
+import LabelTable from '@components/LabelTable'
 
 const LabelPage = () => {
-  return <div>레이블 페이지</div>;
+  const [newLabelIsShow, setLabelIsShow] = useState(false);
+
+  const onClick = () => {
+    setLabelIsShow(newLabelIsShow => !newLabelIsShow);
+  }
+
+  return <ItemBox type={'label'} onClick={onClick}><LabelTable  newLabelIsShow={newLabelIsShow}/></ItemBox>;
 };
 
 export default LabelPage;
