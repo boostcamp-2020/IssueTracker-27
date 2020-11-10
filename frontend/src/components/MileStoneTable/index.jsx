@@ -6,7 +6,7 @@ import MileStoneTileTableContainer from './style';
 const MileStoneTileTable = () => {
   const { milestones } = useMainState();
   const [milestoneStatus, setmilestoneStatus] = useState(true);
-  const [value, setValue] = useState({
+  const [classifiedMilestones, setClassifiedMilestones] = useState({
     opendMileStones: [],
     closedMileStones: []
   });
@@ -19,19 +19,18 @@ const MileStoneTileTable = () => {
   };
 
   useEffect(() => {
-    setValue(
-      milestones.reduce(
-        (total, milestone) => {
-          if (milestone.status) total.opendMileStones.push(milestone);
-          else total.closedMileStones.push(milestone);
-          return total;
-        },
-        {
-          opendMileStones: [],
-          closedMileStones: []
-        }
-      )
+    const updatedMilestones = milestones.reduce(
+      (total, milestone) => {
+        if (milestone.status) total.opendMileStones.push(milestone);
+        else total.closedMileStones.push(milestone);
+        return total;
+      },
+      {
+        opendMileStones: [],
+        closedMileStones: []
+      }
     );
+    setClassifiedMilestones(updatedMilestones);
   }, [milestones]);
 
   // attributes: ['id', 'title', 'description', 'status', 'dueDate'],
