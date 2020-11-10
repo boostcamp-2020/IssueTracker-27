@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import ItemBox from '@components/ItemBox';
+import MileStoneTable from '@components/MileStoneTable'
 
 const MilestonePage = () => {
-  return <div>마일스톤 페이지</div>;
+  return <ItemBox type={'milestone'}><MileStoneTable/></ItemBox>;
 };
 
 export default MilestonePage;
