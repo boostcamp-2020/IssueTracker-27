@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useMainState } from '@contexts/MainContext.jsx';
+import { useFilterBaseState } from '@contexts';
 import useInputChange from '@hooks/useInputChange.js';
 import FilterContainer from './style.js';
 
@@ -14,7 +14,7 @@ const baseMap = {
 
 const Filter = () => {
   const [value, changeValue, setValue] = useInputChange('');
-  const { filterBase } = useMainState();
+  const filterBase = useFilterBaseState();
   const detailRef = useRef(undefined);
 
   const closeDetail = e => {

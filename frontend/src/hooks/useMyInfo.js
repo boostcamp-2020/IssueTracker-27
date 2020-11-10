@@ -1,7 +1,7 @@
-import { useMainState } from '@contexts/MainContext';
+import { useMyInfoState } from '@contexts';
 
 const useMyInfo = () => {
-  const { myInfo } = useMainState();
+  const myInfo = useMyInfoState();
   return myInfo;
 };
 

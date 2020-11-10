@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useMainState } from '@contexts/MainContext';
+import { useMilestoneState } from '@contexts';
 import MileStoneTile from './MileStoneTile';
 import MileStoneTileTableContainer from './style';
 
 const MileStoneTileTable = () => {
-  const { milestones } = useMainState();
+  const milestones = useMilestoneState();
   const [milestoneStatus, setmilestoneStatus] = useState(true);
   const [classifiedMilestones, setClassifiedMilestones] = useState({
     opendMileStones: [],

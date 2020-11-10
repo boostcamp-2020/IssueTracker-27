@@ -1,7 +1,7 @@
 import React from 'react';
 import { Assignee, DropDownJoinUser } from './Assignee';
 import useInputChange from '@hooks/useInputChange';
-import { useMainState } from '@contexts/MainContext';
+import { useJoinUserState } from '@contexts';
 import { AssigneeList, AssigneeDropDownContainer } from './style';
 import Filter from '@common/Filter';
 
@@ -21,7 +21,7 @@ export const AssigneeMenu = ({ additionalInfo }) => {
 
 export const AssigneeMenuDropDown = ({ additionalInfo, setAdditionalInfo }) => {
   const [username, changeUsername] = useInputChange('');
-  const { joinUsers } = useMainState();
+  const joinUsers = useJoinUserState();
 
   return (
     <AssigneeDropDownContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBox from '@common/SideBox';
-import { useMainState } from '@contexts/MainContext';
+import { useMilestoneState } from '@contexts';
 import Milestone from './Milestone';
 import Filter from '@common/Filter';
 import useInputChange from '@hooks/useInputChange';
@@ -24,7 +24,7 @@ export const MilestoneMenu = ({ additionalInfo }) => {
 };
 
 export const MilestoneDropDown = ({ additionalInfo, setAdditionalInfo }) => {
-  const { milestones } = useMainState();
+  const milestones = useMilestoneState();
   const [milestoneInput, changeMilestoneInput] = useInputChange('');
 
   return (
