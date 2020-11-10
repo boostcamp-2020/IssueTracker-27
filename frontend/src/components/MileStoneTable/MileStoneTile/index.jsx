@@ -2,13 +2,13 @@ import React from 'react';
 import { MileStoneTileContainer } from './style';
 
 // attributes: ['id', 'title', 'description', 'status', 'dueDate'],
-const MileStoneTile = ({ milestones }) => {
+const MileStoneTile = ({ milestone }) => {
   return (
     <MileStoneTileContainer>
       <div>
-        <div>{milestones.title}</div>
-        <div>{milestones.dueDate}</div>
-        <div>{milestones.description}</div>
+        <div>{milestone.title}</div>
+        <div>{milestone.dueDate}</div>
+        <div>{milestone.description}</div>
       </div>
       <div>
         <div></div>
