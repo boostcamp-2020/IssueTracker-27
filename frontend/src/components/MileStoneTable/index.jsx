@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useMainState } from '@contexts/MainContext';
+import { useMilestoneState } from '@contexts';
 import MileStoneTile from './MileStoneTile';
 import MileStoneTileTableContainer from './style';
 
 const MileStoneTileTable = () => {
-  const { milestones } = useMainState();
-  const [milestoneStatus, setmilestoneStatus] = useState(true);
+  const milestones = useMilestoneState();
+  const [milestoneStatus, setMilestoneStatus] = useState(true);
   const [classifiedMilestones, setClassifiedMilestones] = useState({
     opendMileStones: [],
     closedMileStones: []
   });
 
   const clickOpen = () => {
-    setmilestoneStatus(true);
+    setMilestoneStatus(true);
   };
   const clickClose = () => {
-    setmilestoneStatus(false);
+    setMilestoneStatus(false);
   };
 
   useEffect(() => {
@@ -52,7 +52,9 @@ const MileStoneTileTable = () => {
               d='M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z'
             ></path>
           </svg>
-          <span onClick={clickOpen}>{value.opendMileStones.length} Open</span>
+          <span onClick={clickOpen}>
+            {classifiedMilestones.opendMileStones.length} Open
+          </span>
         </div>
         <div>
           <svg
@@ -69,7 +71,7 @@ const MileStoneTileTable = () => {
             ></path>
           </svg>
           <span onClick={clickClose}>
-            {value.closedMileStones.length} Closed
+            {classifiedMilestones.closedMileStones.length} Closed
           </span>
         </div>
       </div>

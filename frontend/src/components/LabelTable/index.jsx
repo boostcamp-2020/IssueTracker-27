@@ -1,10 +1,10 @@
 import React from 'react';
-import { useMainState } from '@contexts/MainContext';
+import { useLabelState } from '@contexts';
 import LabelTile from './LabelTile';
 import NewLabelForm from './NewLabelForm';
 
 const LabelTable = ({ nowLabelIsShow }) => {
-  const { labels } = useMainState();
+  const labels = useLabelState();
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMainState } from '@contexts/MainContext';
+import { useLabelState } from '@contexts';
 import { LabelListContainer, LabelMenuDropDownContainer } from './style';
 import { Label, DropDownLabel } from './Label';
 import Filter from '@common/Filter';
@@ -22,7 +22,7 @@ export const LabelMenu = ({ additionalInfo }) => {
 };
 
 export const LabelMenuDropDown = ({ additionalInfo, setAdditionalInfo }) => {
-  const { labels } = useMainState();
+  const labels = useLabelState();
   const [labelTitle, changeLabelTitle] = useInputChange('');
 
   return (
