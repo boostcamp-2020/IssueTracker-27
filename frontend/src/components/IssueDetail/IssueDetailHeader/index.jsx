@@ -16,9 +16,9 @@ const IssueDetailHeader = () => {
           <button>edit</button>
         </section>
         <section className='issue_detail_header_bottom'>
-          {status ? <div>open</div> : <div>close</div>}
-          <div>{JoinUser?.User.username}</div>
-          <div>opened this issue {openAt}</div>
+          {`${status ? 'open' : 'close'} ${
+            JoinUser?.User.username
+          } opened this issue ${openAt} `}
         </section>
       </div>
     </IssueDetailHeaderContainer>
