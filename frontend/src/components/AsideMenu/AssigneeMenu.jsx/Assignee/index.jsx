@@ -18,11 +18,11 @@ export const DropDownJoinUser = ({
   joinUser,
   setAdditionalInfo
 }) => {
-  const isSelected =
-    additionalInfo?.assignees?.length &&
-    additionalInfo.assignees.some(
-      selectedAssignee => selectedAssignee.User.id === joinUser.User.id
-    );
+  const isSelected = additionalInfo?.assignees?.length
+    ? additionalInfo.assignees.some(
+        selectedAssignee => selectedAssignee.User.id === joinUser.User.id
+      )
+    : '';
   const clickAssignee = () => {
     if (!isSelected) {
       return setAdditionalInfo({
