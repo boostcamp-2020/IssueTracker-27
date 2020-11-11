@@ -23,9 +23,9 @@ export const Button = styled.button`
   }
 `;
 
-export const GreenButton = ({ children, width, ...rest }) => {
+export const GreenButton = ({ children, width, onClick,  ...rest }) => {
   return (
-    <Button backgroundColor='#2C974B' color='#ffffff' width={width} {...rest}>
+    <Button backgroundColor='#2C974B' color='#ffffff' width={width} onClick={onClick} {...rest}>
       {children}
     </Button>
   );
@@ -39,9 +39,13 @@ export const RedButton = ({ children, width, ...rest }) => {
   );
 };
 
-export const TagButton = ({ children, width }) => {
+export const TagButton = ({ children, width, selected }) => {
   return (
-    <Button backgroundColor='#ffffff' color='#000000' width={width}>
+    <Button
+      backgroundColor={selected ? 'blue' : `#ffffff`}
+      color={selected ? 'white' : '#000000'}
+      width={width}
+    >
       {children}
     </Button>
   );

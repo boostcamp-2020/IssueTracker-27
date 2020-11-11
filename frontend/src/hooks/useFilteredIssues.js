@@ -1,8 +1,9 @@
-import { useMainState } from '@contexts/MainContext';
+import { useFilterBaseState, useIssueState } from '@contexts';
 import { useMemo } from 'react';
 
 const useFilteredIssues = () => {
-  const { issues, filterBase } = useMainState();
+  const filterBase = useFilterBaseState();
+  const issues = useIssueState();
   const filteredIssues = useMemo(
     () =>
       issues.filter(issue => {
