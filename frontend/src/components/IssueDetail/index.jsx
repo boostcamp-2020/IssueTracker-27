@@ -1,40 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from '@hooks/react-context';
+import AsideMenu from '@components/AsideMenu';
 import IssueDetailHeader from './IssueDetailHeader';
 import IssueDetailMain from '@components/IssueDetail/IssueDetailMain';
+import { IssueDetailContainer } from './style';
 
 const IssueDetail = () => {
   const selectedIssue = useSelector(state => state.selectedIssue);
-  console.log(selectedIssue);
-  const {
-    id,
-    openAt,
-    status,
-    title,
-    description,
-    JoinUser,
-    Assignees,
-    IssueLabels
-  } = selectedIssue;
+
+  // const [additionalInfo, setAdditionalInfo] = useState({
+  //   assignees: selectedIssue
+  //   labels,
+  //   milestone: null
+  // });
 
   return (
-    selectedIssue && (
-      <>
-        <IssueDetailHeader
-          issueId={id}
-          title={title}
-          status={status}
-          userName={JoinUser?.User.username}
-          openAt={openAt}
-        />
-        <IssueDetailMain
-          title={title}
-          description={description}
-          profileImage={JoinUser?.User.profileImage}
-        />
-        메인 내용 적은거 comment asidmenu
-      </>
-    )
+    <IssueDetailContainer>
+      <IssueDetailHeader />
+      {/* <main>
+        <div className='main_content'>
+          <IssueDetailMain />
+        </div>
+        <AsideMenu />
+      </main> */}
+    </IssueDetailContainer>
   );
 };
 
