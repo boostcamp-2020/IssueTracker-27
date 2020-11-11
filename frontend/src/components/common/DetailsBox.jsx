@@ -10,8 +10,12 @@ const DetailBoxContainer = styled.details`
 
 const PopupContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 1.5rem;
   right: 0;
+  padding: 0.5rem 0;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 5px;
 `;
 
 export const DetailsBox = ({ title, children }) => {
