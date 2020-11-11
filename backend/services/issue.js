@@ -1,6 +1,19 @@
 const { db } = require('../models/index');
+const ISSUETRACKER_ID = 1;
 
 const IssueService = {
+  getIssue: async (issueId) => {
+    return await db.issue.findOne({
+      where: {
+        id: issueId,
+      },
+      include: {
+        model: db.joinUser,
+        where: { issueTrackerId: ISSUETRACKER_ID },
+        attributes: ['id'],
+      },
+    });
+  },
   createNewIssue: async ({
     joinUserId,
     title,

@@ -1,6 +1,16 @@
 const IssueService = require('../services/issue');
 
 const IssueController = {
+  getIssue: async (req, res) => {
+    const { issueId } = req.params;
+    try {
+      const issue = await IssueService.getIssue(issueId);
+      return res.status(200).json({ issue });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ message: 'error' });
+    }
+  },
   postIssue: async (req, res) => {
     const {
       joinUserId,
