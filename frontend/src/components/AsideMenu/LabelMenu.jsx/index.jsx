@@ -9,7 +9,7 @@ export const LabelMenu = ({ additionalInfo }) => {
   return (
     <LabelListContainer>
       <div className='selected_labels'>
-        {additionalInfo.labels.length ? (
+        {additionalInfo?.labels?.length ? (
           additionalInfo.labels.map(label => (
             <Label key={label.id} label={label}></Label>
           ))

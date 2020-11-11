@@ -39,14 +39,18 @@ export const MilestoneDropDown = ({ additionalInfo, setAdditionalInfo }) => {
         />
       </div>
       <ul className='milestone_list_content'>
-        {milestones.map(milestone => (
-          <Milestone
-            key={milestone.id}
-            milestone={milestone}
-            setAdditionalInfo={setAdditionalInfo}
-            additionalInfo={additionalInfo}
-          />
-        ))}
+        {milestones.length ? (
+          milestones.map(milestone => (
+            <Milestone
+              key={milestone.id}
+              milestone={milestone}
+              setAdditionalInfo={setAdditionalInfo}
+              additionalInfo={additionalInfo}
+            />
+          ))
+        ) : (
+          <div>No Milestones</div>
+        )}
       </ul>
     </MilestoneContainer>
   );

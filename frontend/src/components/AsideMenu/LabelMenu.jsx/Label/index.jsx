@@ -6,9 +6,9 @@ export const Label = ({ label }) => {
 };
 
 export const DropDownLabel = ({ label, additionalInfo, setAdditionalInfo }) => {
-  const isSelected = additionalInfo.labels.some(
-    selectedLabel => selectedLabel.id === label.id
-  );
+  const isSelected =
+    additionalInfo?.labels?.length &&
+    additionalInfo.labels.some(selectedLabel => selectedLabel.id === label.id);
 
   const clickLabel = () => {
     if (isSelected) {

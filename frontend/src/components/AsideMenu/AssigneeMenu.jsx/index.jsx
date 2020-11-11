@@ -8,7 +8,7 @@ import Filter from '@common/Filter';
 export const AssigneeMenu = ({ additionalInfo }) => {
   return (
     <AssigneeList>
-      {additionalInfo.assignees.length ? (
+      {additionalInfo?.assignees?.length ? (
         additionalInfo.assignees.map(assignee => (
           <Assignee key={assignee.id} assignee={assignee} />
         ))
@@ -37,14 +37,15 @@ export const AssigneeMenuDropDown = ({ additionalInfo, setAdditionalInfo }) => {
         />
       </div>
       <ul className='aside_drop_down_list'>
-        {joinUsers.map(joinUser => (
-          <DropDownJoinUser
-            additionalInfo={additionalInfo}
-            setAdditionalInfo={setAdditionalInfo}
-            key={joinUser.User.id}
-            joinUser={joinUser}
-          />
-        ))}
+        {joinUsers.length &&
+          joinUsers.map(joinUser => (
+            <DropDownJoinUser
+              additionalInfo={additionalInfo}
+              setAdditionalInfo={setAdditionalInfo}
+              key={joinUser.User.id}
+              joinUser={joinUser}
+            />
+          ))}
       </ul>
     </AssigneeDropDownContainer>
   );
