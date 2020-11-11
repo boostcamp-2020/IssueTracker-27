@@ -13,7 +13,7 @@ const IssueService = {
   }) => {
     await db.label.update(
       { title, description, color, issueTrackerId },
-      { where: { id: labelId }, returning: true, plain: true }
+      { where: { id: labelId } }
     );
   },
   deleteLabel: async (labelId) => {
