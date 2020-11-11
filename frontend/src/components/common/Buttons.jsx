@@ -23,9 +23,15 @@ export const Button = styled.button`
   }
 `;
 
-export const GreenButton = ({ children, width, onClick,  ...rest }) => {
+export const GreenButton = ({ children, width, onClick, ...rest }) => {
   return (
-    <Button backgroundColor='#2C974B' color='#ffffff' width={width} onClick={onClick} {...rest}>
+    <Button
+      backgroundColor='#2C974B'
+      color='#ffffff'
+      width={width}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </Button>
   );
@@ -34,6 +40,20 @@ export const GreenButton = ({ children, width, onClick,  ...rest }) => {
 export const RedButton = ({ children, width, ...rest }) => {
   return (
     <Button backgroundColor='#ffffff' color='#c31f1f' width={width} {...rest}>
+      {children}
+    </Button>
+  );
+};
+
+export const WhiteButton = ({ children, width, onClick, ...rest }) => {
+  return (
+    <Button
+      backgroundColor='#ffffff'
+      color='#000000'
+      width={width}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </Button>
   );
