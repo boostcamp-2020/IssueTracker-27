@@ -1,8 +1,4 @@
 import {
-  useIssueDispatch,
-  useLabelDispatch,
-  useMilestoneDispatch,
-  useJoinUserDispatch,
   loadIssuesAction,
   loadJoinUsersAction,
   loadLabelsAction,
@@ -10,12 +6,13 @@ import {
 } from '@contexts';
 import { axios } from '@api';
 import { useEffect } from 'react';
+import { useDispatch } from './react-context';
 
 const useGetAllData = () => {
-  const issueDispatch = useIssueDispatch();
-  const labelDispatch = useLabelDispatch();
-  const milestoneissueDispatch = useMilestoneDispatch();
-  const joinUserDispatch = useJoinUserDispatch();
+  const issueDispatch = useDispatch(dispatch => dispatch.issue);
+  const labelDispatch = useDispatch(dispatch => dispatch.label);
+  const milestoneissueDispatch = useDispatch(dispatch => dispatch.milestone);
+  const joinUserDispatch = useDispatch(dispatch => dispatch.joinUser);
 
   const getAllData = async () => {
     try {
