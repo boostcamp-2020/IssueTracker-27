@@ -6,12 +6,42 @@ const IssueService = {
     return await db.issue.findOne({
       where: {
         id: issueId,
+        issueTrackerId: ISSUETRACKER_ID,
       },
-      include: {
-        model: db.joinUser,
-        where: { issueTrackerId: ISSUETRACKER_ID },
-        attributes: ['id'],
-      },
+      include: [
+        {
+          model: db.joinUser,
+          attributes: ['id'],
+          include: {
+            model: db.user,
+            attributes: ['id', 'username', 'profileImage'],
+          },
+        },
+        {
+          model: db.issueLabel,
+          attributes: ['id'],
+          include: {
+            model: db.label,
+            attributes: ['id', 'title', 'description', 'color'],
+          },
+        },
+        {
+          model: db.milestone,
+          attributes: ['id', 'title', 'description', 'status', 'dueDate'],
+        },
+        {
+          model: db.assignee,
+          attributes: ['id'],
+          include: {
+            model: db.joinUser,
+            attributes: ['id'],
+            include: {
+              model: db.user,
+              attributes: ['id', 'username', 'profileImage'],
+            },
+          },
+        },
+      ],
     });
   },
   createNewIssue: async ({
