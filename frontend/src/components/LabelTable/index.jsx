@@ -1,18 +1,46 @@
-import React from 'react';
-import { useSelector } from '@hooks/react-context';
+import React, { useEffect } from 'react';
+import { axios } from '@api';
+import { useSelector, useDispatch } from '@hooks/react-context';
+import { loadLabelsAction } from '@contexts';
 import LabelTile from './LabelTile';
-import NewLabelForm from './NewLabelForm';
+import LabelForm from './LabelForm';
 
-const LabelTable = ({ nowLabelIsShow }) => {
+const LabelTable = ({ isLabelShowing, toggleIsLabelShowing }) => {
   const labels = useSelector(state => state.label);
+  const labelDispatch = useDispatch(dispatcher => dispatcher.label);
+
+  const getAllLabels = async () => {
+    try {
+      const { data } = await axios.get('/api/labels/1');
+      labelDispatch(loadLabelsAction(data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllLabels();
+  }, []);
 
   return (
     <>
-      {nowLabelIsShow && <NewLabelForm />}
+      {isLabelShowing && (
+        <LabelForm
+          submitButtonName='Create Label'
+          type='createLabel'
+          toggleIsLabelShowing={toggleIsLabelShowing}
+        />
+      )}
       <div className='label_table_header'>{labels.length} labels</div>
       <ul>
         {labels.length ? (
-          labels.map(label => <LabelTile key={label.id} label={label} />)
+          labels.map(label => (
+            <LabelTile
+              key={label.id}
+              label={label}
+              labelDispatch={labelDispatch}
+            />
+          ))
         ) : (
           <div>No Labels</div>
         )}
