@@ -1,15 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from '@hooks/react-context';
+import { useSelector, useDispatch } from '@hooks/react-context';
 import MileStoneTile from './MileStoneTile';
+import { loadMilestoneAction } from '@contexts';
+import { axios } from '@api';
 import MileStoneTileTableContainer from './style';
 
 const MileStoneTileTable = () => {
   const milestones = useSelector(state => state.milestone);
+  const milestonesDispatch = useDispatch(dispatch => dispatch.milestone);
   const [milestoneStatus, setMilestoneStatus] = useState(true);
   const [classifiedMilestones, setClassifiedMilestones] = useState({
     opendMileStones: [],
     closedMileStones: []
   });
+
+  const getAllMilestones = async () => {
+    try {
+      const { data } = await axios.get('/api/milestones/1');
+      milestonesDispatch(loadMilestoneAction(data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const clickOpen = () => {
     setMilestoneStatus(true);
@@ -17,6 +29,10 @@ const MileStoneTileTable = () => {
   const clickClose = () => {
     setMilestoneStatus(false);
   };
+
+  useEffect(() => {
+    getAllMilestones();
+  }, []);
 
   useEffect(() => {
     const updatedMilestones = milestones.reduce(
@@ -33,10 +49,8 @@ const MileStoneTileTable = () => {
     setClassifiedMilestones(updatedMilestones);
   }, [milestones]);
 
-  // attributes: ['id', 'title', 'description', 'status', 'dueDate'],
   return (
     <MileStoneTileTableContainer>
-      {/* 헤더 부분 */}
       <div className='label_table_header'>
         <div>
           <svg
@@ -77,9 +91,13 @@ const MileStoneTileTable = () => {
       </div>
       {/* 내용 부분 */}
       <section>
-        {milestones.map(milestone => (
-          <MileStoneTile key={milestone.id} milestone={milestone} />
-        ))}
+        {milestoneStatus
+          ? classifiedMilestones.opendMileStones.map(milestone => (
+              <MileStoneTile key={milestone.id} milestone={milestone} />
+            ))
+          : classifiedMilestones.closedMileStones.map(milestone => (
+              <MileStoneTile key={milestone.id} milestone={milestone} />
+            ))}
       </section>
     </MileStoneTileTableContainer>
   );
