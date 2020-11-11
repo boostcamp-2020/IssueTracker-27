@@ -4,6 +4,14 @@ import { createAction } from './utils';
 const FilterBaseStateContext = createContext(null);
 const FilterBaseDispatchContext = createContext(null);
 
+const initialState = {
+  isOpen: true,
+  labels: [],
+  author: {},
+  milestone: {},
+  assignee: {}
+};
+
 const RESET_FILTER = 'RESET_FILTER';
 const CHANGE_SOME_KEY = 'CHANGE_SOME_KEY';
 const ADD_SOME_KEY = 'ADD_SOME_KEY';
@@ -17,18 +25,23 @@ export const removeSomeKeyAction = createAction(REMOVE_SOME_KEY);
 const filterBaseReducer = (filters, action) => {
   switch (action.type) {
     case RESET_FILTER:
-      return {
-        isOpen: true,
-        labels: [],
-        author: '',
-        milestone: '',
-        assignee: ''
-      };
+      return { ...initialState };
 
     case CHANGE_SOME_KEY:
+      if (action.payload.isReset) {
+        return { ...initialState, [action.payload.key]: action.payload.value };
+      }
+
       return { ...filters, [action.payload.key]: action.payload.value };
 
     case ADD_SOME_KEY:
+      if (action.payload.isReset) {
+        return {
+          ...initialState,
+          [action.payload.key]: [action.payload.value]
+        };
+      }
+
       return {
         ...filters,
         [action.payload.key]: filters[action.payload.key].concat(
@@ -49,13 +62,7 @@ const filterBaseReducer = (filters, action) => {
 };
 
 const FilterBaseContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterBaseReducer, {
-    isOpen: true,
-    labels: [],
-    author: {},
-    milestone: {},
-    assignee: {}
-  });
+  const [state, dispatch] = useReducer(filterBaseReducer, initialState);
 
   return (
     <FilterBaseDispatchContext.Provider value={dispatch}>
