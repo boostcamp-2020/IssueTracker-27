@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from '@hooks/react-context';
 import { changeSomeKeyAction } from '@contexts';
-import { ItemWrapper } from '../style';
+import { CheckBox, ItemWrapper } from '../style';
 
 const MilestoneItem = ({ milestone, checked }) => {
   const filterBaseDispatch = useDispatch(dispatch => dispatch.filterBase);
@@ -25,7 +25,13 @@ const MilestoneItem = ({ milestone, checked }) => {
 
   return (
     <ItemWrapper onClick={checked ? onRemove : onClick}>
-      {checked && 'V'}
+      <CheckBox>
+        {checked && (
+          <span>
+            <i className='fas fa-check'></i>
+          </span>
+        )}
+      </CheckBox>
       {milestone.title}
     </ItemWrapper>
   );

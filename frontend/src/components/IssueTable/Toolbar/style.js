@@ -17,6 +17,12 @@ export const ItemWrapper = styled.li`
   align-items: center;
 `;
 
+export const CheckBox = styled.span`
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+`;
+
 export const UserImageBox = styled.span`
   display: inline-block;
   width: 1.5rem;

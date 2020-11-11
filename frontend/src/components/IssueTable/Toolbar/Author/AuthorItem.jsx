@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from '@hooks/react-context';
 import { changeSomeKeyAction } from '@contexts';
-import { ItemWrapper, UserImageBox } from '../style';
+import { CheckBox, ItemWrapper, UserImageBox } from '../style';
 
 const AuthorItem = ({ author, checked }) => {
   const filterBaseDispatch = useDispatch(dispatch => dispatch.filterBase);
@@ -25,7 +25,13 @@ const AuthorItem = ({ author, checked }) => {
   };
   return (
     <ItemWrapper onClick={checked ? onRemove : onClick}>
-      {checked && 'V'}
+      <CheckBox>
+        {checked && (
+          <span>
+            <i className='fas fa-check'></i>
+          </span>
+        )}
+      </CheckBox>
       <UserImageBox>
         <img src={author.User.profileImage} alt='유저 프로필'></img>
       </UserImageBox>
