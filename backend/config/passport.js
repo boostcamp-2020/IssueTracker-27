@@ -33,15 +33,12 @@ const GithubConfig = {
 
 const GithubVerify = async (accessToken, refreshToken, profile, done) => {
   try {
-    const [user, created] = await db.user.findOrCreate({
+    const [user] = await db.user.findOrCreate({
       where: { username: profile.username },
       defaults: {
         profileImage: profile.photos[0].value,
       },
     });
-    if (created) {
-      await db.joinUser.create({ issueTrackerId: 1, userId: user.id });
-    }
     if (user) return done(null, user);
     done(null, false);
   } catch (err) {
