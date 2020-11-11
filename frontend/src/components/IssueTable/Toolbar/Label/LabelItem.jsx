@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from '@hooks/react-context';
 import { addSomeKeyAction, removeSomeKeyAction } from '@contexts';
+import { ItemWrapper, LabelColorBox } from '../style';
 
 const LabelItem = ({ label, checked }) => {
   const filterBaseDispatch = useDispatch(dispatch => dispatch.filterBase);
@@ -23,10 +24,11 @@ const LabelItem = ({ label, checked }) => {
   };
 
   return (
-    <li onClick={checked ? onRemove : onClick}>
+    <ItemWrapper onClick={checked ? onRemove : onClick}>
       {checked && 'V'}
+      <LabelColorBox color={label.color} />
       {label.title}
-    </li>
+    </ItemWrapper>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from '@hooks/react-context';
 import { changeSomeKeyAction } from '@contexts';
+import { ItemWrapper } from '../style';
 
 const MilestoneItem = ({ milestone, checked }) => {
   const filterBaseDispatch = useDispatch(dispatch => dispatch.filterBase);
@@ -23,10 +24,10 @@ const MilestoneItem = ({ milestone, checked }) => {
   };
 
   return (
-    <li onClick={checked ? onRemove : onClick}>
+    <ItemWrapper onClick={checked ? onRemove : onClick}>
       {checked && 'V'}
       {milestone.title}
-    </li>
+    </ItemWrapper>
   );
 };
 
