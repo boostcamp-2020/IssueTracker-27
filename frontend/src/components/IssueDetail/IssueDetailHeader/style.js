@@ -4,7 +4,7 @@ export const IssueDetailHeaderContainer = styled.header`
   width: 100%;
   border-bottom: 1px solid #d2d2d2;
   display: flex;
-  justify-content: center;
+
   & .issue_detail_header {
     width: 95%;
 
