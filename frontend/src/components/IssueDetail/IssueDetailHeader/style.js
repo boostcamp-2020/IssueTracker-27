@@ -22,7 +22,6 @@ export const IssueDetailHeaderContainer = styled.header`
 
     & .issue_detail_header_bottom {
       width: 100%;
-      display: flex;
     }
   }
 `;
