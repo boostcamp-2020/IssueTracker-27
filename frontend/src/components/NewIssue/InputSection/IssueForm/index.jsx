@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import useInputChange from '@hooks/useInputChange';
 import { axios } from '@api';
 import { RedButton, GreenButton } from '@common/Buttons';
-import useMyInfo from '@hooks/useMyInfo';
+import { useSelector } from '@hooks/react-context';
 import { useHistory } from 'react-router-dom';
 import IssueFormContainer from './style';
 import useDebouncer from './useDebouncer';
@@ -12,7 +12,7 @@ const IssueForm = ({ additionalInfo }) => {
   const [description, changeDescription] = useInputChange('');
   const [isDisabled, setisDisabled] = useState(true);
   const [showTextLength, setShowTextLength] = useState(false);
-  const myInfo = useMyInfo();
+  const myInfo = useSelector(state => state.myInfo);
   const history = useHistory();
 
   useDebouncer({ description, showTextLength, setShowTextLength });

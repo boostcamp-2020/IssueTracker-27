@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLabelState } from '@contexts';
+import { useSelector } from '@hooks/react-context';
 import LabelTile from './LabelTile';
 import NewLabelForm from './NewLabelForm';
 
 const LabelTable = ({ nowLabelIsShow }) => {
-  const labels = useLabelState();
+  const labels = useSelector(state => state.label);
 
   return (
     <>
