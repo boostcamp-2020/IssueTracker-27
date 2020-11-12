@@ -16,8 +16,8 @@ const useFilteredIssues = () => {
 
         if (
           filterBase.labels?.length &&
-          !issue.IssueLabels.some(target =>
-            filterBase.labels.some(label => target.Label?.id === label.id)
+          !filterBase.labels.every(label =>
+            issue.IssueLabels.some(target => label.id === target.Label?.id)
           )
         )
           return false;
