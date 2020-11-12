@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import MilestonePage from './pages/MilestonePage';
 import LabelPage from './pages/LabelPage';
 import NewIssuePage from './pages/NewIssuePage';
+import NewMilestonePage from './pages/NewMilestonePage';
 import Header from './components/common/Header';
 import useCheckAuth from '@hooks/useCheckAuth';
 import '../public/reset.css';
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/milestone' component={MilestonePage} />
           <Route path='/label' component={LabelPage} />
           <Route path='/login' component={LoginPage} />
+          <Route path='/new-milestone' component={NewMilestonePage} />
           <Route exact path='/' component={MainPage} />
           <Route component={NoMatchPage} />
         </Switch>
