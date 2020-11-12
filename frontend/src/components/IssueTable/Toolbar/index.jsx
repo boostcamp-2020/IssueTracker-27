@@ -5,6 +5,10 @@ import {
   BaseOptionContainer,
   DetailOptionContainer
 } from './style';
+import AuthorList from './Author/AuthorList';
+import LabelList from './Label/LabelList';
+import MilestoneList from './Milestone/MilestoneList';
+import AssigneeList from './Assignee/AssigneeList';
 
 const Toolbar = ({ isCheckAll, toggleIsCheckAll, checkedNumber }) => {
   return (
@@ -19,12 +23,18 @@ const Toolbar = ({ isCheckAll, toggleIsCheckAll, checkedNumber }) => {
       </BaseOptionContainer>
 
       <DetailOptionContainer>
-        <DetailsBox title='Author'></DetailsBox>
-        <DetailsBox title='Label'></DetailsBox>
-        <DetailsBox title='Projects'></DetailsBox>
-        <DetailsBox title='Milestones'></DetailsBox>
-        <DetailsBox title='Assignee'></DetailsBox>
-        <DetailsBox title='Sort'></DetailsBox>
+        <DetailsBox title='Author'>
+          <AuthorList />
+        </DetailsBox>
+        <DetailsBox title='Label'>
+          <LabelList />
+        </DetailsBox>
+        <DetailsBox title='Milestones'>
+          <MilestoneList />
+        </DetailsBox>
+        <DetailsBox title='Assignee'>
+          <AssigneeList />
+        </DetailsBox>
       </DetailOptionContainer>
     </ToolbarContainer>
   );

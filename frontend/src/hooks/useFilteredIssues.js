@@ -32,7 +32,7 @@ const useFilteredIssues = () => {
           return false;
 
         if (
-          filterBase.assignee.id &&
+          filterBase.assignee?.length &&
           !issue.Assignees.some(
             assignee => assignee.id === filterBase.assignee.id
           )
@@ -41,7 +41,7 @@ const useFilteredIssues = () => {
 
         return true;
       }),
-    [issues]
+    [issues, filterBase]
   );
 
   return filteredIssues;

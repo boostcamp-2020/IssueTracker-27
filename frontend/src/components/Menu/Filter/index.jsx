@@ -1,15 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from '@hooks/react-context';
-import useInputChange from '@hooks/useInputChange.js';
-import FilterContainer from './style.js';
+import useInputChange from '@hooks/useInputChange';
+import FilterContainer from './style';
+import FilterList from './FilterList';
 
 const baseMap = {
   isOpen: value => (value ? 'is:open' : value === false ? 'is:close' : ''),
   labels: labels =>
     labels.length ? labels.map(label => `label:${label.title}`).join(' ') : '',
-  author: author => (author.id ? `author:${author.name}` : ''),
+  author: author =>
+    author.id ? `author:${author.username || author.User.username}` : '',
   milestone: milestone => (milestone.id ? `milestone:${milestone.title}` : ''),
-  assignee: assignee => (assignee.id ? `assignee:${assignee.name}` : '')
+  assignee: assignee =>
+    assignee.id ? `assignee:${assignee.username || assignee.User.username}` : ''
 };
 
 const Filter = () => {
@@ -49,14 +52,7 @@ const Filter = () => {
           Filters
           <i className='fas fa-angle-down'></i>
         </summary>
-        <ul className='filter_list'>
-          <li className='filter_item'>Filter Issues</li>
-          <li className='filter_item'>Open issues</li>
-          <li className='filter_item'>Your issues</li>
-          <li className='filter_item'>Everything assigned to you</li>
-          <li className='filter_item'>Everything mentioning you</li>
-          <li className='filter_item'>Closed issues</li>
-        </ul>
+        <FilterList />
       </details>
 
       <div className='filter_input_wrap'>
