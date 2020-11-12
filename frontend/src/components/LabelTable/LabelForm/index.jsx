@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { axios } from '@api';
-import useInputChange from '@hooks/useInputChange';
+import { axios } from '../../../api';
+import useInputChange from '../../../hooks/useInputChange';
 import { LabelFormContainer, LabelPreview } from './style';
 import { GreenButton, WhiteButton } from '../../common/Buttons';
-import { useDispatch } from '@hooks/react-context';
+import { useDispatch } from '../../../hooks/react-context';
 import {
   addLabelAction,
   updateLabelAction
