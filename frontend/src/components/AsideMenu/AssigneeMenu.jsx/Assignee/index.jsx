@@ -44,9 +44,9 @@ export const DropDownJoinUser = ({
         </span>
       )}
       <span>
-        <img src={joinUser.User.profileImage} alt='profile'></img>
+        <img src={joinUser?.User?.profileImage} alt='profile'></img>
       </span>
-      <span>{joinUser.User.username}</span>
+      <span>{joinUser?.User?.username}</span>
     </DropDownJoinUserContainer>
   );
 };
