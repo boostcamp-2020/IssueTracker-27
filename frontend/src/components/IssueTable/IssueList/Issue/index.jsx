@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IssueItem } from './style';
 import Labels from './Labels';
 import Milestone from './Milestone';
@@ -41,19 +42,21 @@ const Issue = ({ issue, checkState, setCheckState }) => {
         onChange={onChange}
       />
       <Icon status={issue.status} />
-      <div className='issue_content'>
-        <div>
-          <Title title={issue.title} />
-          <Labels issueLabels={issue.IssueLabels} />
+      <Link to={`/issue/${issue.id}`}>
+        <div className='issue_content'>
+          <div>
+            <Title title={issue.title} />
+            <Labels issueLabels={issue.IssueLabels} />
+          </div>
+          <div>
+            <Opened
+              openAt={issue.openAt}
+              username={issue.JoinUser.User.username}
+            />
+            {issue.Milestone && <Milestone milestone={issue.Milestone} />}
+          </div>
         </div>
-        <div>
-          <Opened
-            openAt={issue.openAt}
-            username={issue.JoinUser.User.username}
-          />
-          {issue.Milestone && <Milestone milestone={issue.Milestone} />}
-        </div>
-      </div>
+      </Link>
       {/* 뒤에 추가 적인 내용 */}
     </IssueItem>
   );

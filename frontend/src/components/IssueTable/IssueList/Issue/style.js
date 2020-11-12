@@ -10,6 +10,11 @@ export const IssueItem = styled.li`
       margin-right: 0.5rem;
     }
   }
+
+  & a {
+    text-decoration: none;
+    color: #000000;
+  }
 `;
 
 export const LabelItem = styled.span`
