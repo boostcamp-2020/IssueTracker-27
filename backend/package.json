@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "test": "jest"
+    "test": "jest --forceExit --detectOpenHandles"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -27,8 +27,5 @@
     "nodemon": "^2.0.6",
     "prettier": "2.1.2",
     "supertest": "^6.0.1"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
