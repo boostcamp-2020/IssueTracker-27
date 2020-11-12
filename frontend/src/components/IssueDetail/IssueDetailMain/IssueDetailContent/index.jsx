@@ -10,7 +10,7 @@ const IssueDetailContent = () => {
     <IssueDetailContentContainer>
       <div className='user_profile'>
         <img
-          src={JoinUser?.User.profileImage}
+          src={JoinUser?.User?.profileImage}
           alt='유저 이미지'
           width={100}
           height={100}
