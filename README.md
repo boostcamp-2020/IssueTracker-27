@@ -1,5 +1,7 @@
 # IssueTracker-27
 
+<img src='https://user-images.githubusercontent.com/38036598/98691390-552b0b80-23b1-11eb-962c-a3ff0cbc6bd5.png' alt='Tracker Hunter logo' width='200'></img>
+
 ### 멤버소개
 - J053 김종은
 - J067 문건우
