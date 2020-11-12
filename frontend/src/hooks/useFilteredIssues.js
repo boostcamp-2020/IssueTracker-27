@@ -15,9 +15,9 @@ const useFilteredIssues = () => {
           return false;
 
         if (
-          filterBase.labels.length &&
-          !issue.IssueLabels.every(target =>
-            filterBase.labels.some(label => target.Label.id === label.id)
+          filterBase.labels?.length &&
+          !issue.IssueLabels.some(target =>
+            filterBase.labels.some(label => target.Label?.id === label.id)
           )
         )
           return false;
@@ -26,15 +26,16 @@ const useFilteredIssues = () => {
           return false;
 
         if (
-          filterBase.milestone.id &&
-          issue.Milestone.id !== filterBase.milestone.id
+          filterBase.milestone?.id &&
+          issue?.Milestone?.id !== filterBase.milestone.id
         )
           return false;
 
         if (
-          filterBase.assignee?.length &&
+          filterBase.assignee?.id &&
           !issue.Assignees.some(
-            assignee => assignee.id === filterBase.assignee.id
+            assignee =>
+              assignee.JoinUser?.User?.id === filterBase.assignee?.User?.id
           )
         )
           return false;
