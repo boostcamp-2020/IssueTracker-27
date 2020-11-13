@@ -9,6 +9,9 @@ const LabelTileContainer = styled.div`
 
   & .label_tile_title {
     background-color: ${props => props.bgcolor};
+    padding: 0.5rem;
+    border-radius: 15px;
+    line-height: 0.8rem;
   }
 `;
 
