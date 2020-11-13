@@ -26,10 +26,14 @@ export const DropDownLabel = ({ label, additionalInfo, setAdditionalInfo }) => {
 
   return (
     <DropDownLabelContainer onClick={clickLabel} bgcolor={label.color}>
-      {isSelected && (
+      {isSelected ? (
         <span className='check_mark'>
-          <i className='fas fa-check'></i>
+          <span>
+            <i className='fas fa-check'></i>
+          </span>
         </span>
+      ) : (
+        <span className='check_mark'></span>
       )}
       <div className='drop_down_label_content'>
         <div className='drop_down_content_header'>

@@ -25,7 +25,7 @@ const LoginSection = styled.section`
 const LoginPage = () => {
   return (
     <LoginSection>
-      <img src='../../public/logoColor.png' alt='로고'></img>
+      <img src='https://ifh.cc/g/Qc1Ds0.png' alt='로고'></img>
       <LoginForm />
     </LoginSection>
   );
