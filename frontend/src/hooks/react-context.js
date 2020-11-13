@@ -13,7 +13,7 @@ import {
   useMilestoneDispatch,
   useMyInfoState,
   useMyInfoDispatch
-} from '@contexts';
+} from '../contexts';
 
 const stateMap = {
   selectedIssue: useSelectedIssueState,

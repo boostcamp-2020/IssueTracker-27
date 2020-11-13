@@ -1,10 +1,10 @@
 import React from 'react';
-import { axios } from '@api';
-import { WhiteButton } from '@common/Buttons';
+import { axios } from '../../../api';
+import { WhiteButton } from '../../common/Buttons';
 import LabelTileContainer from './style';
 import { removeLabelAction } from '../../../contexts';
 import LabelForm from '../LabelForm';
-import useToggle from '@hooks/useToggle';
+import useToggle from '../../../hooks/useToggle';
 
 const LabelTile = ({ label, labelDispatch }) => {
   const [isLabelShowing, toggleIsLabelShowing] = useToggle(false);
