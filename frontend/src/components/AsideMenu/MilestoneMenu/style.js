@@ -12,16 +12,10 @@ export const MilestoneSelected = styled.section`
   }
 `;
 
-export const MilestoneContainer = styled.ul`
+export const MilestoneContainer = styled.section`
   width: 100%;
 
-  & .milestone_list_header {
-    height: 1.5rem;
-    background-color: #f7f8fa;
-  }
-
   & .milestone_list_content {
-    list-style: none;
-    background-color: #fdfdfd;
+    background-color: #ffffff;
   }
 `;

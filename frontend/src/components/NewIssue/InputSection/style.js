@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 
 const InputSectionContainer = styled.section`
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  width: 90%;
 `;
 
 export default InputSectionContainer;

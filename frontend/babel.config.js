@@ -6,7 +6,7 @@ module.exports = {
         targets: '> 2%, not dead',
         corejs: 3,
         useBuiltIns: 'entry',
-        modules: false,
+        modules: 'auto',
         shippedProposals: true
       }
     ],

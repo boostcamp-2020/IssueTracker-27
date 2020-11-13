@@ -1,19 +1,21 @@
 import { useEffect } from 'react';
 import { axios } from '@api';
-import useMyInfo from '@hooks/useMyInfo';
-import { useMainDispatch, LOAD_MYINFO } from '@contexts/MainContext';
+import { loadMyInfoAction } from '@contexts';
+import { useDispatch, useSelector } from './react-context';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useCheckAuth = () => {
-  const dispatch = useMainDispatch();
   const history = useHistory();
   const location = useLocation();
-  const pathsToCheck = ['/new-issue'];
-  const myInfo = useMyInfo();
+  const pathsToCheck = ['/login'];
+
+  const myInfo = useSelector(state => state.myInfo);
+  const myInfoDispatch = useDispatch(dispatch => dispatch.myInfo);
 
   const checkAuth = async () => {
     if (myInfo.id) return;
-    if (!pathsToCheck.includes(location.pathname)) return;
+
+    if (pathsToCheck.includes(location.pathname)) return;
 
     try {
       const response = await axios.get('/api/auth/login/success');
@@ -24,7 +26,8 @@ const useCheckAuth = () => {
         profileImage: user.profileImage,
         joinUserId: user?.JoinUsers?.length && user.JoinUsers[0].id
       };
-      dispatch({ type: LOAD_MYINFO, payload: payload });
+
+      myInfoDispatch(loadMyInfoAction(payload));
     } catch (error) {
       alert('로그인이 필요합니다!');
       history.push('/login');

@@ -1,8 +1,10 @@
-import { useMainState } from '@contexts/MainContext';
+import { useSelector } from './react-context';
 import { useMemo } from 'react';
 
 const useFilteredIssues = () => {
-  const { issues, filterBase } = useMainState();
+  const filterBase = useSelector(state => state.filterBase);
+  const issues = useSelector(state => state.issue);
+
   const filteredIssues = useMemo(
     () =>
       issues.filter(issue => {
@@ -13,9 +15,9 @@ const useFilteredIssues = () => {
           return false;
 
         if (
-          filterBase.labels.length &&
-          !issue.IssueLabels.every(target =>
-            filterBase.labels.some(label => target.Label.id === label.id)
+          filterBase.labels?.length &&
+          !filterBase.labels.every(label =>
+            issue.IssueLabels.some(target => label.id === target.Label?.id)
           )
         )
           return false;
@@ -24,22 +26,23 @@ const useFilteredIssues = () => {
           return false;
 
         if (
-          filterBase.milestone.id &&
-          issue.Milestone.id !== filterBase.milestone.id
+          filterBase.milestone?.id &&
+          issue?.Milestone?.id !== filterBase.milestone.id
         )
           return false;
 
         if (
-          filterBase.assignee.id &&
+          filterBase.assignee?.id &&
           !issue.Assignees.some(
-            assignee => assignee.id === filterBase.assignee.id
+            assignee =>
+              assignee.JoinUser?.User?.id === filterBase.assignee?.User?.id
           )
         )
           return false;
 
         return true;
       }),
-    [issues]
+    [issues, filterBase]
   );
 
   return filteredIssues;

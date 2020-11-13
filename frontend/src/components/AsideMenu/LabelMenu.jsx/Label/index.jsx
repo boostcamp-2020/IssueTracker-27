@@ -2,17 +2,13 @@ import React from 'react';
 import { LabelContainer, DropDownLabelContainer } from './style';
 
 export const Label = ({ label }) => {
-  return (
-    <LabelContainer color={label.color}>
-      <div>{label.title}</div>
-    </LabelContainer>
-  );
+  return <LabelContainer bgcolor={label.color}>{label.title}</LabelContainer>;
 };
 
 export const DropDownLabel = ({ label, additionalInfo, setAdditionalInfo }) => {
-  const isSelected = additionalInfo.labels.some(
-    selectedLabel => selectedLabel.id === label.id
-  );
+  const isSelected =
+    additionalInfo?.labels?.length &&
+    additionalInfo.labels.some(selectedLabel => selectedLabel.id === label.id);
 
   const clickLabel = () => {
     if (isSelected) {
@@ -29,11 +25,23 @@ export const DropDownLabel = ({ label, additionalInfo, setAdditionalInfo }) => {
   };
 
   return (
-    <DropDownLabelContainer onClick={clickLabel}>
-      <div>{isSelected ? 'O' : 'X'}</div>
-      <div>{label.color}</div>
-      <div>{label.title}</div>
-      <div>{label.description}</div>
+    <DropDownLabelContainer onClick={clickLabel} bgcolor={label.color}>
+      {isSelected ? (
+        <span className='check_mark'>
+          <span>
+            <i className='fas fa-check'></i>
+          </span>
+        </span>
+      ) : (
+        <span className='check_mark'></span>
+      )}
+      <div className='drop_down_label_content'>
+        <div className='drop_down_content_header'>
+          <div className='drop_down_color'></div>
+          <div className='drop_down_title'>{label.title}</div>
+        </div>
+        <div className='drop_down_description'>{label.description}</div>
+      </div>
     </DropDownLabelContainer>
   );
 };

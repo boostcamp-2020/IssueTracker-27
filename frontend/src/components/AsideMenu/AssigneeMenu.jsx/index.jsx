@@ -1,14 +1,14 @@
 import React from 'react';
 import { Assignee, DropDownJoinUser } from './Assignee';
 import useInputChange from '@hooks/useInputChange';
-import { useMainState } from '@contexts/MainContext';
+import { useSelector } from '@hooks/react-context';
 import { AssigneeList, AssigneeDropDownContainer } from './style';
 import Filter from '@common/Filter';
 
 export const AssigneeMenu = ({ additionalInfo }) => {
   return (
     <AssigneeList>
-      {additionalInfo.assignees.length ? (
+      {additionalInfo?.assignees?.length ? (
         additionalInfo.assignees.map(assignee => (
           <Assignee key={assignee.id} assignee={assignee} />
         ))
@@ -21,25 +21,31 @@ export const AssigneeMenu = ({ additionalInfo }) => {
 
 export const AssigneeMenuDropDown = ({ additionalInfo, setAdditionalInfo }) => {
   const [username, changeUsername] = useInputChange('');
-  const { joinUsers } = useMainState();
+  const joinUsers = useSelector(state => state.joinUser);
 
   return (
     <AssigneeDropDownContainer>
-      <div className='assign_title'>Assign up to 10 people to this issue</div>
-      <Filter
-        value={username}
-        onChange={changeUsername}
-        placeholder='Type or choose a name'
-      />
-      <ul>
-        {joinUsers.map(joinUser => (
-          <DropDownJoinUser
-            additionalInfo={additionalInfo}
-            setAdditionalInfo={setAdditionalInfo}
-            key={joinUser.User.id}
-            joinUser={joinUser}
-          />
-        ))}
+      <div className='aside_drop_down_header'>
+        Assign up to 10 people to this issue
+      </div>
+      <div className='aside_drop_down_filter'>
+        <Filter
+          value={username}
+          onChange={changeUsername}
+          placeholder='Type or choose a name'
+          isAside={true}
+        />
+      </div>
+      <ul className='aside_drop_down_list'>
+        {joinUsers.length &&
+          joinUsers.map(joinUser => (
+            <DropDownJoinUser
+              additionalInfo={additionalInfo}
+              setAdditionalInfo={setAdditionalInfo}
+              key={joinUser.User.id}
+              joinUser={joinUser}
+            />
+          ))}
       </ul>
     </AssigneeDropDownContainer>
   );

@@ -1,7 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import ItemBox from '@components/ItemBox';
+import LabelTable from '@components/LabelTable';
+import useToggle from '@hooks/useToggle';
 
 const LabelPage = () => {
-  return <div>레이블 페이지</div>;
+  const [isLabelShowing, toggleIsLabelShowing] = useToggle(false);
+
+  return (
+    <ItemBox type={'label'} onClick={toggleIsLabelShowing}>
+      <LabelTable
+        isLabelShowing={isLabelShowing}
+        toggleIsLabelShowing={toggleIsLabelShowing}
+      />
+    </ItemBox>
+  );
 };
 
 export default LabelPage;

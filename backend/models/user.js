@@ -28,6 +28,14 @@ module.exports = class User extends Sequelize.Model {
         tableName: 'user',
         charset: 'utf8',
         collate: 'utf8_general_ci',
+        hooks: {
+          afterCreate: (user) => {
+            sequelize.models.JoinUser.create({
+              issueTrackerId: 1,
+              userId: user.id,
+            });
+          },
+        },
       }
     );
   }
